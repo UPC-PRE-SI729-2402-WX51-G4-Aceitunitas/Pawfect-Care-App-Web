@@ -1,0 +1,27 @@
+<div class="pet-list">
+    <h2>List of registered pets</h2>
+    <input type="text" placeholder="Search pets" class="search-input" />
+    <table>
+      <thead>
+
+      <tr>
+        <th *ngFor="let column of columnsToDisplay">{{column}} </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pet of dataSource">
+        <td>{{ pet.name }}</td>
+        <td>{{ pet.birthDate }}</td>
+        <td>{{ pet.registrationDate }}</td>
+        <td>{{ pet.breed }}</td>
+        <td>{{ pet.gender }}</td>
+        <td>{{ pet.hc }}</td>
+        <td>
+          <button>Edit</button>
+          <button>History</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  

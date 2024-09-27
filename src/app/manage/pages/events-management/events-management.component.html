@@ -1,0 +1,39 @@
+<div class="event-list">
+    <h2>List Events</h2>
+    <p>Chronological list of medical events</p>
+    <input type="text" placeholder="Search event" class="search-input" />
+
+    <button class="add-new">Add new</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let column of columnsToDisplay">{{column}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of dataSource">
+                <td>{{ event.petName }}</td>
+                <td>{{ event.startDate }}</td>
+                <td>{{ event.client }}</td>
+                <td>{{ event.contactNumber }}</td>
+                <td>{{ event.status }}</td>
+                <td>{{ event.eventType }}</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Mark as complete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <button>&lt;</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>&gt;</button>
+    </div>
+</div>

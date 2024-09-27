@@ -1,0 +1,24 @@
+<div class="sidebar-content">
+    <h2>Pawfect Care</h2>
+    <ul>
+        @for (option of options; track option.title) {
+            <li>
+                <a mat-button [routerLink]="option.path">
+                    {{ option.title}}
+                  </a>
+            </li>
+            }
+    </ul>
+  </div>
+  
+  
+  <!-- <li><a href="#">Information pet</a></li>
+  <li><a href="#">Create pet</a></li>
+  <li><a href="#">History pet</a></li>
+  <li><a href="#">Edit pet</a></li>
+  <li><a href="#">Information events</a></li>
+  <li><a href="#">Edit event</a></li>
+  <li><a href="#">Register event</a></li>
+  <li><a href="#">Information clients</a></li>
+  <li><a href="#">Edit client</a></li>
+  <li><a href="#">Register client</a></li> -->
