@@ -1,1 +1,29 @@
-<p>clients-management works!</p>
+<div class="client-list">
+    <h2>List of registered clients</h2>
+
+    <div class="controls-container">
+        <input type="text" placeholder="Search clients" class="search-input" />
+        <button class="add-new">Add new</button>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th *ngFor="let column of columnsToDisplay">{{column}} </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let client of dataSource">
+        <td>{{ client.fullName }}</td>
+        <td>{{ client.phone }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.address }}</td>
+        <td>{{ client.status }}</td>
+        <td>{{ client.hc }}</td>
+        <td>
+          <button>Edit</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  
