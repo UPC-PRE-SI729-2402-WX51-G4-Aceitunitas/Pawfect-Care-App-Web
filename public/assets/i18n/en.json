@@ -1,1 +1,105 @@
-{}
+{
+  "section": {
+    "home": {
+      "title": "Welcome"
+    }
+  },
+  "section1": {
+    "home": {
+      "subtitle": "Welcome to PawfectCareApp"
+    }
+  },
+  "section2": {
+    "home": {
+      "description": "Your go-to platform for managing the health and\n  well-being of your pets. Whether you're a pet owner\n  or a veterinary professional, PawfectCareApp simplifies the\n  management of clinical records, appointments, and more,\n  all in one place. Enjoy a seamless experience with our intuitive\n  design and comprehensive features, designed to keep your furry friends\n  healthy and happy."
+    }
+  },
+
+  "pageDown": {
+    "home": {
+      "title": "Page Not Found"
+    }
+  },
+  "pageDown1": {
+    "home": {
+      "subtitle": "The path",
+      "subtitle1" : "{{invalidUrl}}",
+      "subtitle2" : "is not valid."
+    }
+  },
+  "pageDown2": {
+    "home": {
+      "goHome": "Home"
+    }
+  },
+
+  "pets": {
+    "home": {
+      "title": "List of registered pets",
+      "buttons":{
+        "edit":"Edit",
+        "history":"History"
+      }
+    }
+  },
+  "pets1": {
+    "home": {
+      "button": "Add new"
+    }
+  },
+  "pets2": {
+    "home": {
+      "edit": "Edit"
+    }
+  },
+  "pets3": {
+    "home": {
+      "history": "History"
+    }
+  },
+
+  "clients": {
+    "home": {
+      "title": "List of registered clients",
+      "buttons":{
+        "edit":"Edit"
+      }
+    }
+  },
+  "clients1": {
+    "home": {
+      "button": "Add new"
+    }
+  },
+  "clients2": {
+    "home": {
+      "edit": "Edit"
+    }
+  },
+
+  "event": {
+    "home": {
+      "title": "List Events",
+      "buttons":{
+        "edit":"Edit",
+        "check":"Check"
+      }
+    }
+  },
+  "event1": {
+    "home": {
+      "button": "Add new"
+    }
+  },
+  "event2": {
+    "home": {
+      "edit": "Edit"
+    }
+  },
+  "event3": {
+    "home": {
+      "button2": "Mark as complete"
+    }
+  }
+}
+

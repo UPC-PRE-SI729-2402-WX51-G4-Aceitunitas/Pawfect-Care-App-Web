@@ -1,0 +1,27 @@
+<h2>New Client</h2>
+<div class="form-section">
+  <form #clientForm="ngForm" (submit)="onSubmit()" class="form">
+    <mat-form-field id="full-name-form-field">
+      <input matInput [(ngModel)]="client.fullName" name="fullName" placeholder="Full Name" required />
+    </mat-form-field>
+    <mat-form-field id="phone-form-field">
+      <input matInput [(ngModel)]="client.phone" name="phone" placeholder="Phone" required />
+    </mat-form-field>
+    <mat-form-field id="email-form-field">
+      <input matInput [(ngModel)]="client.email" name="email" placeholder="Email" required />
+    </mat-form-field>
+    <mat-form-field id="address-form-field">
+      <input matInput [(ngModel)]="client.address" name="address" placeholder="Address" required />
+    </mat-form-field>
+    <mat-form-field id="status-form-field">
+      <input matInput [(ngModel)]="client.status" name="status" placeholder="Status" required />
+    </mat-form-field>
+    <mat-form-field id="hc-form-field">
+      <input matInput [(ngModel)]="client.hc" name="hc" placeholder="HC" required />
+    </mat-form-field>
+    <div class="button-container">
+      <button mat-stroked-button>Add</button>
+      <button mat-stroked-button (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>
