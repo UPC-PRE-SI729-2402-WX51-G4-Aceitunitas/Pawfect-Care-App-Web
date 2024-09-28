@@ -1,6 +1,13 @@
 .pet-list {
     margin-top: 20px;
   }
+
+  .controls-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
   
   table {
     width: 100%;
@@ -17,18 +24,26 @@
     background-color: #f4f4f4;
   }
   
+  .add-new {
+    background-color: #ff9900;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .search-input {
+    width: 480px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
   button {
     background-color: #ff9900;
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    border-radius: 50px;
   }
-  
-  .search-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-  }
-  

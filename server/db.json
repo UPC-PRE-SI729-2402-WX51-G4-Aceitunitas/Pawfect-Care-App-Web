@@ -120,5 +120,53 @@
             "eventType": "Surgery"
         }
     ],
-    "clients": []
+
+    "clients": [
+        {
+            "id": 1,
+            "fullName": "Alberto Sanchez",
+            "phone": "941695232",
+            "email": "alberto.sanchez@example.com",
+            "address": "123 Main St, Lima, Peru",
+            "status": "Active",
+            "hc": 101
+          },
+          {
+            "id": 2,
+            "fullName": "Carla Martinez",
+            "phone": "947812345",
+            "email": "carla.martinez@example.com",
+            "address": "456 Elm St, Arequipa, Peru",
+            "status": "Inactive",
+            "hc": 102
+          },
+          {
+            "id": 3,
+            "fullName": "Diego Torres",
+            "phone": "963258741",
+            "email": "diego.torres@example.com",
+            "address": "789 Maple St, Cusco, Peru",
+            "status": "Active",
+            "hc": 103
+          },
+          {
+            "id": 4,
+            "fullName": "Lucia Ramirez",
+            "phone": "951357246",
+            "email": "lucia.ramirez@example.com",
+            "address": "321 Oak St, Trujillo, Peru",
+            "status": "Active",
+            "hc": 104
+          },
+          {
+            "id": 5,
+            "fullName": "Fernando Gomez",
+            "phone": "958123456",
+            "email": "fernando.gomez@example.com",
+            "address": "654 Pine St, Piura, Peru",
+            "status": "Inactive",
+            "hc": 105
+          }
+    ]
 }
+

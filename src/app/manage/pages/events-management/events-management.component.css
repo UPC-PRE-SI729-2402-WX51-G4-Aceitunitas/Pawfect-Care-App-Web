@@ -1,9 +1,16 @@
+
+.controls-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
 .event-list {
     margin-top: 20px;
   }
   
   .search-input {
-    width: 100%;
+    width: 480px;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -15,7 +22,6 @@
     padding: 10px 20px;
     border: none;
     margin-bottom: 20px;
-    float: right;
     cursor: pointer;
   }
   
@@ -40,6 +46,7 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    border-radius: 50px;
   }
   
   .pagination {
