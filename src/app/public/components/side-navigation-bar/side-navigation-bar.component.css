@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background: #f2f2f2;
+    padding:2rem;
 }
 .logo-container{
     display: flex;
@@ -13,13 +15,21 @@
     max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
+    padding: 2rem;
 }
 
 .side-content{
     height: 100vh;
-    padding: 1rem;
 }
 
 .navlist-container{
     padding: 1rem;
+    background:#f2f2f2;
+    height: 100%;
+}
+.left-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
 }

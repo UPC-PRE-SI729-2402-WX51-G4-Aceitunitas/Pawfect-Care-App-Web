@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
+import {  Component, inject, OnInit, ViewChild } from '@angular/core';
 import { Pet } from '../../model/pet.entity';
 import { PetsService } from '../../services/pets.service';
+import { TranslateModule } from "@ngx-translate/core";
 import {
   MatCell,
   MatCellDef,
@@ -42,6 +43,7 @@ import { MatButton } from '@angular/material/button';
     MatFormField,
     MatInput,
     MatButton,
+    TranslateModule
   ],
   templateUrl: './pets-management.component.html',
   styleUrl: './pets-management.component.css'

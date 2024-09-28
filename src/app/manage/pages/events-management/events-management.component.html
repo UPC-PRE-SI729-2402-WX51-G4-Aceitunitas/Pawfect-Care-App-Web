@@ -1,14 +1,11 @@
 <div class="event-list">
-    <h2>List Events</h2>
-    <p>Chronological list of medical events</p>
-
-    <div class="controls-container">
-        <mat-form-field>
-            <input matInput type="text" placeholder="Search events" class="search-input" />
-        </mat-form-field>
-        <button mat-stroked-button (click)="navigateToAddEvent()">Add new</button>
-    </div>
-
+  <h2>{{'event.home.title' | translate}}</h2>
+  <div class="controls-container">
+    <mat-form-field>
+        <input matInput type="text" placeholder="Search events" class="search-input" />
+    </mat-form-field>
+    <button mat-stroked-button (click)="navigateToAddEvent()">{{'event1.home.button' | translate}}</button>
+</div>
   <!-- DATA TABLE -->
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="id">
@@ -43,8 +40,8 @@
    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">Actions</th>
    <td mat-cell *matCellDef="let event">
     <div class="button-container">
-        <button mat-stroked-button>Edit</button>
-        <button mat-stroked-button>Check</button>
+        <button mat-stroked-button>{{'event.home.buttons.edit' | translate}}</button>
+        <button mat-stroked-button>{{'event.home.buttons.check' | translate}}</button>
     </div>
    </td>
  </ng-container>

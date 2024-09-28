@@ -1,12 +1,12 @@
 <div class="pet-list">
-    <h2>List of registered pets</h2>
-    <div class="controls-container">
-        <mat-form-field>
-            <input matInput type="text" placeholder="Search pets" class="search-input" />
-        </mat-form-field>
-        <button mat-stroked-button (click)="navigateToAddPet()">Add new</button>
-    </div>
+  <h2>{{'pets.home.title' | translate}}</h2>
 
+  <div class="controls-container">
+    <mat-form-field>
+        <input matInput type="text" placeholder="Search pets" class="search-input" />
+    </mat-form-field>
+    <button mat-stroked-button (click)="navigateToAddPet()">{{'pets1.home.button' | translate}}</button>
+</div>
     <!-- DATA TABLE -->
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
@@ -45,8 +45,8 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">Actions</th>
             <td mat-cell *matCellDef="let pet">
                 <div class="button-container">
-                    <button mat-stroked-button>Edit</button>
-                    <button mat-stroked-button>History</button>
+                    <button mat-stroked-button>{{'pets.home.buttons.edit' | translate}}</button>
+                    <button mat-stroked-button>{{'pets.home.buttons.history' | translate}}</button>
                 </div>
             </td>
         </ng-container>

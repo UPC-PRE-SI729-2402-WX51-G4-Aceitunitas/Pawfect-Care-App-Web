@@ -183,6 +183,15 @@
       "address": "654 Pine St, Piura, Peru",
       "status": "Inactive",
       "hc": 105
+    },
+    {
+      "id": 6,
+      "fullName": "Juan",
+      "phone": "9999999",
+      "email": "jaun@gmail.com",
+      "address": "Miraflores",
+      "status": "ACTIVO",
+      "hc": "111111"
     }
   ]
 }

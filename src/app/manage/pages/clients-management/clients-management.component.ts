@@ -2,6 +2,7 @@ import { Component, inject, ViewChild } from '@angular/core';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from "@ngx-translate/core";
 import {
   MatCell,
   MatCellDef,
@@ -42,6 +43,7 @@ import { MatButton } from '@angular/material/button';
     MatFormField,
     MatInput,
     MatButton,
+    TranslateModule
   ],
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'

@@ -1,11 +1,12 @@
 <div class="client-list">
-  <h2>List of registered clients</h2>
+  <h2>{{'clients.home.title' | translate}}</h2>
+
 
   <div class="controls-container">
     <mat-form-field>
         <input matInput type="text" placeholder="Search clients" class="search-input" />
     </mat-form-field>
-    <button mat-stroked-button (click)="navigateToAddClient()">Add new</button>
+    <button mat-stroked-button (click)="navigateToAddClient()">{{'clients1.home.button' | translate}}</button>
 </div>
 
   <!-- DATA TABLE -->
@@ -43,7 +44,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">Actions</th>
       <td mat-cell *matCellDef="let client">
         <div class="button-container">
-          <button mat-stroked-button>Edit</button>
+          <button mat-stroked-button>{{'clients.home.buttons.edit' | translate}}</button>
         </div>
       </td>
     </ng-container>
