@@ -11,10 +11,11 @@ import { RouterLink } from '@angular/router';
 })
 export class SideNavigationBarComponent {
   options = [
-    { path: '/home', title: 'Home' },
+    { path: '/', title: 'Home' },
     { path: '/manage/pets', title: 'List pets' },
     { path: '/manage/clients', title: 'List clients' },
     { path: '/manage/events', title: 'List events' },
+    { path: '/login', title: 'Login' },
   ];
 
 }

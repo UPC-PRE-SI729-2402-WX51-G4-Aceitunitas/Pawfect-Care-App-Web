@@ -1,20 +1,22 @@
-.container {
+.main {
+    overflow: hidden;
+    display: flex;
+}
+
+/* .container {
     display: flex;
     height: 100vh;
-  }
-  
-  .sidebar {
-    width: 200px;
+  } */
+
+.sidebar {
+    width: 20%;
     background-color: #f4f4f4;
-    padding: 20px;
-    position: fixed;
-    height: 100%;
-  }
-  
-  .content {
-    margin-left: 250px;
-    width: calc(100% - 250px);
+    padding: 50px;
+}
+
+.content {
+    width: 80%;
     padding: 20px;
     overflow-y: auto;
-  }
-  
+    height: 100vh;
+}
