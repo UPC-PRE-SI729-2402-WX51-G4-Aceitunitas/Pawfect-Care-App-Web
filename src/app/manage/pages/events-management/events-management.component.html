@@ -15,6 +15,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let event of dataSource">
+                <td>{{ event.id }}</td>
                 <td>{{ event.petName }}</td>
                 <td>{{ event.startDate }}</td>
                 <td>{{ event.client }}</td>

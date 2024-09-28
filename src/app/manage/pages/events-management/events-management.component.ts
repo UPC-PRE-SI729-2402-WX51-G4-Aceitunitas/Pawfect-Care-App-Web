@@ -13,6 +13,7 @@ import { EventsService } from '../../services/events.service';
 export class EventsManagementComponent {
   protected eventData!: Event;
   protected columnsToDisplay: string[] = [
+    "ID",
     "Pet Name",
     "Start Date",
     "Client",

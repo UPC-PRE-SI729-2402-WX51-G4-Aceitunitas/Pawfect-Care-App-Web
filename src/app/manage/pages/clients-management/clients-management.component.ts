@@ -2,11 +2,17 @@ import { Component, inject } from '@angular/core';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormField, MatInput } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-clients-management',
   standalone: true,
-  imports: [CommonModule] ,
+  imports: [CommonModule,MatButtonModule,MatInput,FormsModule,MatFormField,
+    MatInput,
+  ] ,
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'
 })
@@ -20,17 +26,19 @@ export class ClientsManagementComponent {
     "Email",
     "Address",
     "Status",
-    "HC"
+    "HC",
+    "Actions"
   ];
 
   protected dataSource!: Client[];
 
   private clientService: ClientsService = inject(ClientsService);
 
-  constructor() {
+  constructor(private router: Router) {
     this.clientData = new Client({});
     this.dataSource = []
   }
+
   ngOnInit() {
     this.getAllEvents();
   }
@@ -39,6 +47,10 @@ export class ClientsManagementComponent {
     this.clientService.getAll().subscribe((response: Array<Client>) => {
       this.dataSource = response;
     });
+  }
+
+  navigateToAddClient() {
+    this.router.navigate(['/manage/clients/add']);
   }
 
 }
