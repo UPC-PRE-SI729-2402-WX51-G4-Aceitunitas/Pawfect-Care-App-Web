@@ -1,10 +1,10 @@
 <div class="event-list">
-    <h2>List Events</h2>
-    <p>Chronological list of medical events</p>
-    <div class="controls-container">
-        <input type="text" placeholder="Search event" class="search-input" />
-        <button class="add-new">Add new</button>
-    </div>
+  <h2>{{'event.home.title' | translate}}</h2>
+  <p>Chronological list of medical events</p>
+  <div class="controls-container">
+    <input type="text" placeholder="Search event" class="search-input" />
+    <button class="add-new">{{'event1.home.button' | translate}}</button>
+  </div>
   <!-- DATA TABLE -->
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="id">

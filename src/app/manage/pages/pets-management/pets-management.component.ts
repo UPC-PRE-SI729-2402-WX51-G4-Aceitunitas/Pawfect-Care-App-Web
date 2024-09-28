@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { Pet } from '../../model/pet.entity';
 import { PetsService } from '../../services/pets.service';
+import { TranslateModule } from "@ngx-translate/core";
 import {
   MatCell,
   MatCellDef,
@@ -17,7 +18,7 @@ import {MatPaginator} from "@angular/material/paginator";
 @Component({
   selector: 'app-pets-management',
   standalone: true,
-  imports: [CommonModule, MatTable, MatColumnDef, MatHeaderCell, MatCell, MatSort, MatHeaderCellDef, MatCellDef, MatSortHeader, MatHeaderRow, MatRow, MatHeaderRowDef, MatRowDef, MatPaginator],
+  imports: [TranslateModule, CommonModule, MatTable, MatColumnDef, MatHeaderCell, MatCell, MatSort, MatHeaderCellDef, MatCellDef, MatSortHeader, MatHeaderRow, MatRow, MatHeaderRowDef, MatRowDef, MatPaginator],
   templateUrl: './pets-management.component.html',
   styleUrl: './pets-management.component.css'
 })

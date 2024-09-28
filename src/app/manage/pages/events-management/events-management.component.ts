@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import {Component, inject, ViewChild} from '@angular/core';
 import { Event } from '../../model/event.entity';
 import { EventsService } from '../../services/events.service';
+import {TranslateModule} from '@ngx-translate/core';
 import {
   MatCell,
   MatCellDef,
@@ -17,7 +18,7 @@ import {MatPaginator} from "@angular/material/paginator";
 @Component({
   selector: 'app-events-management',
   standalone: true,
-  imports: [CommonModule, MatTable, MatColumnDef, MatHeaderCell, MatSortHeader, MatCell, MatHeaderCellDef, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatPaginator, MatSort],
+  imports: [TranslateModule, CommonModule, MatTable, MatColumnDef, MatHeaderCell, MatSortHeader, MatCell, MatHeaderCellDef, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatPaginator, MatSort],
   templateUrl: './events-management.component.html',
   styleUrl: './events-management.component.css'
 })

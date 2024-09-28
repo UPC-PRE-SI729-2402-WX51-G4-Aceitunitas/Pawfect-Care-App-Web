@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from "@ngx-translate/core";
 import {
   MatCell,
   MatCellDef,
@@ -18,7 +19,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-clients-management',
   standalone: true,
-  imports: [CommonModule, MatCell, MatCellDef, MatColumnDef, MatHeaderCell, MatHeaderRow, MatHeaderRowDef, MatPaginator, MatRow, MatRowDef, MatSort, MatSortHeader, MatTable, MatHeaderCellDef],
+  imports: [CommonModule, MatCell, MatCellDef, MatColumnDef, MatHeaderCell, MatHeaderRow, MatHeaderRowDef, MatPaginator, MatRow, MatRowDef, MatSort, MatSortHeader, MatTable, MatHeaderCellDef, TranslateModule],
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'
 })
