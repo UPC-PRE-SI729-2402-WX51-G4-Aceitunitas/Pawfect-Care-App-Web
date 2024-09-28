@@ -13,11 +13,34 @@ import {
 } from "@angular/material/table";
 import {MatSort, MatSortHeader} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MatFormField, MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-events-management',
   standalone: true,
-  imports: [CommonModule, MatTable, MatColumnDef, MatHeaderCell, MatSortHeader, MatCell, MatHeaderCellDef, MatCellDef, MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef, MatPaginator, MatSort],
+  imports: [
+    CommonModule, 
+    MatCell, 
+    MatCellDef, 
+    MatColumnDef, 
+    MatHeaderCell, 
+    MatHeaderRow, 
+    MatHeaderRowDef, 
+    MatPaginator, 
+    MatRow, 
+    MatRowDef, 
+    MatSort, 
+    MatSortHeader, 
+    MatTable, 
+    MatHeaderCellDef,
+    FormsModule,
+    MatFormField,
+    MatInput,
+    MatButton,
+  ],
   templateUrl: './events-management.component.html',
   styleUrl: './events-management.component.css'
 })
@@ -30,7 +53,8 @@ export class EventsManagementComponent {
     "client",
     "contactNumber",
     "status",
-    "eventType"
+    "eventType",
+    "actions"
   ];
 
   @ViewChild(MatSort, {static: false})
@@ -39,13 +63,11 @@ export class EventsManagementComponent {
   @ViewChild(MatPaginator, {static: false})
   protected paginator!: MatPaginator;
 
-  protected isEditMode: boolean = false;
   protected dataSource!: MatTableDataSource<any>;
 
   private eventsService: EventsService = inject(EventsService);
 
-  constructor() {
-    this.isEditMode = false;
+  constructor(private router: Router) {
     this.eventData = new Event({});
     this.dataSource = new MatTableDataSource();
   }
@@ -65,16 +87,9 @@ export class EventsManagementComponent {
     });
   }
 
-  onEventsAdded(course: Event) {
-    this.eventData = course;
-    this.createEvents();
-  }
 
-  createEvents(){
-    this.eventsService.create(this.eventData).subscribe((response:Event) => {
-      this.dataSource.data.push(response);
-      this.dataSource.data = this.dataSource.data;
-    })
+  navigateToAddEvent() {
+    this.router.navigate(['/manage/events/add']);
   }
 
 
