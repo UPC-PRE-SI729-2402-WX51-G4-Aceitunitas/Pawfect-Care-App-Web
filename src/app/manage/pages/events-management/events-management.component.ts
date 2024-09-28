@@ -25,7 +25,7 @@ export class EventsManagementComponent {
   protected eventData!: Event;
   protected columnsToDisplay: string[] = [
     "id",
-    "name",
+    "petName",
     "startDate",
     "client",
     "contactNumber",

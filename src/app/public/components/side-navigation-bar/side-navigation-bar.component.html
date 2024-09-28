@@ -1,15 +1,29 @@
-<div class="sidebar-content">
-    <h2>Pawfect Care</h2>
-    <ul>
-        @for (option of options; track option.title) {
-            <li>
-                <a mat-button [routerLink]="option.path">
-                    {{ option.title}}
-                  </a>
-            </li>
+<mat-sidenav-container>
+    <mat-sidenav #drawer fixedInViewport>
+        <mat-toolbar>
+            Pawfect Care
+        </mat-toolbar>
+        <mat-nav-list class="navlist-container">
+            @for (option of options; track option.title) {
+            <a mat-list-item [routerLink]="option.path">
+                {{ option.title}}
+            </a>
             }
-    </ul>
-  </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="side-content" >
+        <mat-toolbar class="toolbar-container">
+            <div class="logo-container">
+                <button mat-icon-button (click)="drawer.toggle()" type="button" aria-label="Sidenav toggle icon">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <h2>Pawfect Care</h2>
+            </div>
+            <button mat-stroked-button (click)="navigateToLogin()">Login</button>
+        </mat-toolbar>
+        <div class="router-container">
+            <router-outlet />
+        </div>
 
-
-
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -13,6 +13,7 @@ import {
 } from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, MatSortHeader} from "@angular/material/sort";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clients-management',
@@ -38,10 +39,11 @@ export class ClientsManagementComponent {
 
   private clientService: ClientsService = inject(ClientsService);
 
-  constructor() {
+  constructor(private router: Router) {
     this.clientData = new Client({});
     this.dataSource = []
   }
+
   ngOnInit() {
     this.getAllEvents();
   }
@@ -50,6 +52,10 @@ export class ClientsManagementComponent {
     this.clientService.getAll().subscribe((response: Array<Client>) => {
       this.dataSource = response;
     });
+  }
+
+  navigateToAddClient() {
+    this.router.navigate(['/manage/clients/add']);
   }
 
 }
