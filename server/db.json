@@ -192,6 +192,15 @@
       "address": "Miraflores",
       "status": "ACTIVO",
       "hc": "111111"
+    },
+    {
+      "id": 7,
+      "fullName": "Lucho",
+      "phone": "9999999",
+      "email": "luch@gmail.com",
+      "address": "Ancon",
+      "status": "Activo",
+      "hc": "352352352"
     }
   ]
 }
