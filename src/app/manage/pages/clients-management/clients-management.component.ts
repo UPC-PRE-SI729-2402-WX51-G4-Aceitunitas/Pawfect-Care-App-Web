@@ -2,17 +2,23 @@ import { Component, inject } from '@angular/core';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
 import { CommonModule } from '@angular/common';
+import {
+  MatCell,
+  MatCellDef,
+  MatColumnDef,
+  MatHeaderCell, MatHeaderCellDef,
+  MatHeaderRow,
+  MatHeaderRowDef,
+  MatRow, MatRowDef, MatTable
+} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatSort, MatSortHeader} from "@angular/material/sort";
 import { Router } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormField, MatInput } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-clients-management',
   standalone: true,
-  imports: [CommonModule,MatButtonModule,MatInput,FormsModule,MatFormField,
-    MatInput,
-  ] ,
+  imports: [CommonModule, MatCell, MatCellDef, MatColumnDef, MatHeaderCell, MatHeaderRow, MatHeaderRowDef, MatPaginator, MatRow, MatRowDef, MatSort, MatSortHeader, MatTable, MatHeaderCellDef],
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'
 })
@@ -20,14 +26,13 @@ export class ClientsManagementComponent {
 
   protected clientData!: Client;
   protected columnsToDisplay: string[] = [
-    "ID",
-    "Full Name",
-    "Phone",
-    "Email",
-    "Address",
-    "Status",
-    "HC",
-    "Actions"
+    "id",
+    "fullName",
+    "phone",
+    "email",
+    "address",
+    "status",
+    "hc"
   ];
 
   protected dataSource!: Client[];

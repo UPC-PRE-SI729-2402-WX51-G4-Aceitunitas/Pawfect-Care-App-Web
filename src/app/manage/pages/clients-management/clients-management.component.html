@@ -1,3 +1,4 @@
+
 <div class="client-list">
     <h2>List of registered clients</h2>
 
@@ -5,35 +6,42 @@
         <input type="text" placeholder="Search clients" class="search-input" />
         <button class="add-new" (click)="navigateToAddClient()">Add new</button>
     </div>
-    <table>
-      <thead>
-      <tr>
-        <th *ngFor="let column of columnsToDisplay">{{column}} </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let client of dataSource">
-        <td>{{ client.id }}</td>
-        <td>{{ client.fullName }}</td>
-        <td>{{ client.phone }}</td>
-        <td>{{ client.email }}</td>
-        <td>{{ client.address }}</td>
-        <td>{{ client.status }}</td>
-        <td>{{ client.hc }}</td>
-        <td>
-          <button>Edit</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <div class="pagination">
-      <button>&lt;</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-      <button>5</button>
-      <button>&gt;</button>
-  </div>
-  </div>
-  
+
+  <!-- DATA TABLE -->
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">ID</th>
+      <td mat-cell *matCellDef="let client">{{client.id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">Fullname</th>
+      <td mat-cell *matCellDef="let client">{{ client.fullName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">Phone</th>
+      <td mat-cell *matCellDef="let client">{{ client.phone }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">Email</th>
+      <td mat-cell *matCellDef="let client">{{ client.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">address</th>
+      <td mat-cell *matCellDef="let client">{{ client.address }}</td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">Status</th>
+      <td mat-cell *matCellDef="let client">{{ client.status  }}</td>
+    </ng-container>
+    <ng-container matColumnDef="hc">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID">HC</th>
+      <td mat-cell *matCellDef="let client">{{ client.hc }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;" ></tr>
+  </table>
+
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+
+</div>
