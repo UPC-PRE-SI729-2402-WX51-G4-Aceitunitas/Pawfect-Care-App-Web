@@ -79,7 +79,7 @@
 
   "event": {
     "home": {
-      "title": "List Events",
+      "title": "List Appointments",
       "buttons":{
         "edit":"Edit",
         "check":"Check"

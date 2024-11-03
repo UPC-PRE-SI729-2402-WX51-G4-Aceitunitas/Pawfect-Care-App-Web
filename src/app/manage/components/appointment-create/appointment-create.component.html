@@ -1,0 +1,51 @@
+<h2>New Appointment</h2>
+<div class="form-section">
+  <form #appointmentForm="ngForm" (submit)="onSubmit()" class="form">
+    <mat-form-field>
+      <mat-label>Enter your appointmentName</mat-label>
+      <input matInput [(ngModel)]="appointment.appointmentName" name="appointmentName" placeholder="Full Name" type="text" required />
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Enter your startDateAppointment time</mat-label>
+      <input matInput  name="startDateAppointment" [(ngModel)]="appointment.startDateAppointment"  type="date" placeholder="Select time" required>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Enter your startTimeAppointment </mat-label>
+        <input matInput name="startTimeAppointment" [(ngModel)]="appointment.startTimeAppointment" type="time" placeholder="Select Date" required>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Enter your endDateAppointment time</mat-label>
+      <input matInput name="endDateAppointment" [(ngModel)]="appointment.endDateAppointment"   type="date" placeholder="Select time" required>
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Enter your endTimeAppointment date</mat-label>
+      <input matInput name="endTimeAppointment" [(ngModel)]="appointment.endTimeAppointment"   type="time" placeholder="Select Date" required>
+    </mat-form-field>
+
+    <p><mat-slide-toggle [(ngModel)]="appointment.isMedical" name="isMedical" labelPosition="before">Is medical</mat-slide-toggle></p>
+      <mat-form-field >
+        <mat-label>Enter your status</mat-label>
+        <input matInput [(ngModel)]="appointment.status" name="status" placeholder="status" type="text" required />
+      </mat-form-field>
+    <mat-form-field  appearance="fill">
+      <mat-label>Enter your Pet</mat-label>
+      <mat-select name="petId" [(ngModel)]="appointment.petId">
+        <mat-option [value]="0">
+          No  selected Pet
+        </mat-option>
+        <mat-option *ngFor="let option of options" [value]="option.id">
+          {{ option.petName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="button-container">
+      <button  mat-stroked-button type="submit">Add</button>
+      <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+
+</div>

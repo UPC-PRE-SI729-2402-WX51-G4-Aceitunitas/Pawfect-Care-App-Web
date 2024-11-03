@@ -1,14 +1,6 @@
 <div class="pet-list">
-  <h2>{{'pets.home.title' | translate}}</h2>
-
-  <div class="controls-container">
-    <mat-form-field>
-        <input matInput type="text" placeholder="Search pets" class="search-input" />
-    </mat-form-field>
-    <button mat-stroked-button (click)="navigateToAddPet()">{{'pets1.home.button' | translate}}</button>
-</div>
+  <h2>Pets of client</h2>
     <!-- DATA TABLE -->
-
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Id">Id</th>
@@ -45,15 +37,13 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">Actions</th>
             <td mat-cell *matCellDef="let pet">
-                <div class="button-container">
-                    <button (click)="navigateToEditPet(pet.id)" mat-stroked-button>{{'pets.home.buttons.edit' | translate}}</button>
-                    <button mat-stroked-button>{{'pets.home.buttons.history' | translate}}</button>
-                </div>
+                <button type="button" mat-stroked-button>{{'pets.home.buttons.history' | translate}}</button>
             </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
         <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
     </table>
+
     <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
 
 </div>
