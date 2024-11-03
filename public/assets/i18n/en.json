@@ -100,6 +100,32 @@
     "home": {
       "button2": "Mark as complete"
     }
+  },
+  "login-container": {
+    "login": {
+      "title": "Login",
+      "emailPlaceholder": "Enter your email",
+      "passwordPlaceholder": "Enter your password",
+      "submitButton": "Submit",
+      "registerPrompt": "Don't have an account yet? Please register.",
+      "registerButton": "Register"
+    }
+  },
+  "register-container": {
+    "register": {
+      "title": "Register",
+      "emailPlaceholder": "Email",
+      "passwordPlaceholder": "Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "submitButton": "Register",
+      "alreadyHaveAccount": "Already have an account? Sign in",
+      "loginButton": "Sign in",
+      "register": {
+        "errors": {
+          "required": "This field is required",
+          "invalidEmail": "Not a valid email"
+        }
+      }
+    }
   }
 }
-

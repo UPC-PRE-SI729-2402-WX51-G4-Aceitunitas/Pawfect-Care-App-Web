@@ -1,5 +1,26 @@
 .form{
     display: flex;
     flex-direction: column;
-    
+
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centra el formulario verticalmente */
+}
+
+mat-card {
+  width: 400px; /* Ancho fijo del card */
+  padding: 20px; /* Espacio interno */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* Alinea los botones verticalmente */
+  margin-top: 20px; /* Espacio entre el formulario y el botón */
+}
+
+.submit-button {
+  margin-bottom: 10px; /* Espacio entre botones (si decides añadir más en el futuro) */
 }
