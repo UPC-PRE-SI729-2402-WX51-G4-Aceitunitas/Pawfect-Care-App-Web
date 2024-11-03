@@ -1,4 +1,4 @@
-.login-container {
+.register-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@ mat-card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.login-form {
+.register-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,8 +34,7 @@ mat-card {
   width: 100%;
 }
 
-.register-prompt {
-
-  margin-top: 15px;
+p {
+  margin: 10px 0;
   text-align: center;
 }
