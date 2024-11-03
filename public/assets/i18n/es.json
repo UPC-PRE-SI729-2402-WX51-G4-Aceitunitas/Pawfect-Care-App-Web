@@ -100,5 +100,31 @@
     "home": {
       "button2": "Marcar como completa"
     }
+  },
+  "login-container": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "emailPlaceholder": "Introduce tu correo electrónico",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "submitButton": "Enviar",
+      "registerPrompt": "¿Todavía no tienes cuenta? Regístrate por favor.",
+      "registerButton": "Registrarse"
+    }
+  },
+  "register-container": {
+    "register": {
+      "title": "Registro",
+      "emailPlaceholder": "Correo electrónico",
+      "passwordPlaceholder": "Contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "submitButton": "Registrar",
+      "alreadyHaveAccount": "¿Ya tienes una cuenta? Inicia sesión",
+      "loginButton": "Iniciar sesión",
+      "errors": {
+        "required": "Este campo es obligatorio",
+        "invalidEmail": "No es un correo válido"
+      }
+    }
   }
 }
+
