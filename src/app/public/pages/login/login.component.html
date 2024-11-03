@@ -1,0 +1,43 @@
+<div class="login-container">
+  <mat-card>
+    <h2>{{ 'login-container.login.title' | translate }}</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>{{ 'login-container.login.emailPlaceholder' | translate }}</mat-label>
+        <input matInput type="email" formControlName="email" required />
+        <mat-error *ngIf="loginForm.get('email')?.invalid">
+          {{ getErrorMessage('email') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>{{ 'login-container.login.passwordPlaceholder' | translate }}</mat-label>
+        <input matInput type="password" formControlName="password" required />
+        <mat-error *ngIf="loginForm.get('password')?.invalid">
+          {{ getErrorMessage('password') }}
+        </mat-error>
+      </mat-form-field>
+
+      <div class="button-container">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!loginForm.valid"
+          class="submit-button"
+        >
+          {{ 'login-container.login.submitButton' | translate }}
+        </button>
+      </div>
+    </form>
+
+    <p class="register-prompt">
+      {{ 'login-container.login.registerPrompt' | translate }}
+      <button mat-button (click)="navigateToRegister()">
+        {{ 'login-container.login.registerButton' | translate }}
+      </button>
+    </p>
+
+  </mat-card>
+</div>

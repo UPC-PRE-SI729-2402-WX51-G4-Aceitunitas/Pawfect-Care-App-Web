@@ -1,0 +1,34 @@
+<h2>New Event</h2>
+<div class="form-section">
+    <form #eventForm="ngForm" (submit)="onSubmit()" class="form">
+        <mat-form-field id="pet-name-form-field">
+          <input matInput [(ngModel)]="event.petName" name="petName" placeholder="Pet Name" required />
+        </mat-form-field>
+      
+        <mat-form-field id="start-date-form-field">
+          <input matInput [(ngModel)]="event.startDate" name="startDate" placeholder="Start Date" required type="date" />
+        </mat-form-field>
+      
+        <mat-form-field id="client-form-field">
+          <input matInput [(ngModel)]="event.client" name="client" placeholder="Client Name" required />
+        </mat-form-field>
+      
+        <mat-form-field id="contact-number-form-field">
+          <input matInput [(ngModel)]="event.contactNumber" name="contactNumber" placeholder="Contact Number" required />
+        </mat-form-field>
+      
+        <mat-form-field id="status-form-field">
+          <input matInput [(ngModel)]="event.status" name="status" placeholder="Status" required />
+        </mat-form-field>
+      
+        <mat-form-field id="event-type-form-field">
+          <input matInput [(ngModel)]="event.eventType" name="eventType" placeholder="eventType" required />
+        </mat-form-field>
+      
+        <div class="button-container">
+          <button mat-stroked-button type="submit">Add</button>
+          <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
+
+</div>

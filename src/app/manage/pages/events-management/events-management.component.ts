@@ -1,41 +1,98 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import {Component, inject, ViewChild} from '@angular/core';
 import { Event } from '../../model/event.entity';
 import { EventsService } from '../../services/events.service';
+import {TranslateModule} from '@ngx-translate/core';
+import {
+  MatCell,
+  MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatTable, MatTableDataSource
+} from "@angular/material/table";
+import {MatSort, MatSortHeader} from "@angular/material/sort";
+import {MatPaginator} from "@angular/material/paginator";
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MatFormField, MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-events-management',
   standalone: true,
-  imports: [CommonModule] ,
+  imports: [
+    CommonModule, 
+    MatCell, 
+    MatCellDef, 
+    MatColumnDef, 
+    MatHeaderCell, 
+    MatHeaderRow, 
+    MatHeaderRowDef, 
+    MatPaginator, 
+    MatRow, 
+    MatRowDef, 
+    MatSort, 
+    MatSortHeader, 
+    MatTable, 
+    MatHeaderCellDef,
+    FormsModule,
+    MatFormField,
+    MatInput,
+    MatButton,
+    TranslateModule
+  ],
   templateUrl: './events-management.component.html',
   styleUrl: './events-management.component.css'
 })
 export class EventsManagementComponent {
   protected eventData!: Event;
   protected columnsToDisplay: string[] = [
-    "Pet Name",
-    "Start Date",
-    "Client",
-    "Contact Number",
-    "Status",
-    "Event Type",
-    "Actions"
+    "id",
+    "petName",
+    "startDate",
+    "client",
+    "contactNumber",
+    "status",
+    "eventType",
+    "actions"
   ];
-  protected dataSource!: Event[];
 
-  private eventService: EventsService = inject(EventsService);
+  @ViewChild(MatSort, {static: false})
+  protected sort!: MatSort;
 
-  constructor() {
+  @ViewChild(MatPaginator, {static: false})
+  protected paginator!: MatPaginator;
+
+  protected dataSource!: MatTableDataSource<any>;
+
+  private eventsService: EventsService = inject(EventsService);
+
+  constructor(private router: Router) {
     this.eventData = new Event({});
-    this.dataSource = []
+    this.dataSource = new MatTableDataSource();
   }
+
   ngOnInit() {
     this.getAllEvents();
   }
 
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
   getAllEvents(){
-    this.eventService.getAll().subscribe((response: Array<Event>) => {
-      this.dataSource = response;
+    this.eventsService.getAll().subscribe((response: Array<Event>) => {
+      this.dataSource.data = response;
     });
   }
+
+
+  navigateToAddEvent() {
+    this.router.navigate(['/manage/events/add']);
+  }
+
+
 }
