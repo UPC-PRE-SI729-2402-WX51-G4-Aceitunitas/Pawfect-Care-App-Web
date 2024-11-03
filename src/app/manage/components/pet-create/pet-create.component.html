@@ -1,31 +1,40 @@
 <h2>New Pet</h2>
 <form #petForm="ngForm" (submit)="onSubmit()" class="form">
-  <mat-form-field id="name-form-field">
-    <input matInput [(ngModel)]="pet.name" name="name" placeholder="Pet Name" required />
+  <mat-form-field >
+    <mat-label>Enter your petName</mat-label>
+    <input matInput [(ngModel)]="pet.petName" name="petName" placeholder="Title" required/>
+  </mat-form-field>
+  <mat-form-field >
+    <mat-label>Enter your birthDate</mat-label>
+    <input matInput [(ngModel)]="pet.birthDate" name="birthDate" placeholder="Birth Date" type="date"  required/>
   </mat-form-field>
 
-  <mat-form-field id="birth-date-form-field">
-    <input matInput [(ngModel)]="pet.birthDate" name="birthDate" placeholder="Birth Date" required type="date" />
+  <mat-form-field >
+    <mat-label>Enter your registrationDate</mat-label>
+    <input matInput [(ngModel)]="pet.registrationDate" name="registrationDate" type="date" placeholder="Registration Date" required/>
   </mat-form-field>
 
-  <mat-form-field id="registration-date-form-field">
-    <input matInput [(ngModel)]="pet.registrationDate" name="registrationDate" placeholder="Registration Date" required
-      type="date" />
+  <mat-form-field >
+    <mat-label>Enter your animalBreed</mat-label>
+    <input matInput [(ngModel)]="pet.animalBreed" name="animalBreed" type="text" placeholder="Animal Breed" required/>
   </mat-form-field>
-
-  <mat-form-field id="breed-form-field">
-    <input matInput [(ngModel)]="pet.breed" name="breed" placeholder="Breed" required />
+  <mat-form-field  appearance="fill">
+    <mat-label>Enter your owner</mat-label>
+    <mat-select name="ownerId" [(ngModel)]="pet.ownerId">
+      <mat-option [value]="0">
+        No  selected owner
+      </mat-option>
+      <mat-option *ngFor="let option of options" [value]="option.id">
+        {{ option.fullName }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
-
-  <mat-form-field id="gender-form-field">
-    <input matInput type="text" [(ngModel)]="pet.gender" name="gender" placeholder="Gender" required />
-  </mat-form-field>
-
-  <mat-form-field id="hc-form-field">
-    <input matInput type="number" [(ngModel)]="pet.hc" name="hc" placeholder="HC" required />
-  </mat-form-field>
-
+<mat-radio-group id="gender-form-field" name="petGender" [(ngModel)]="pet.petGender"  placeholder="Gender" aria-label="Select an gender">
+  <mat-radio-button value="MALE">MALE</mat-radio-button>
+  <mat-radio-button value="FEMALE">FEMALE</mat-radio-button>
+</mat-radio-group>
   <div class="button-container">
     <button mat-stroked-button type="submit">Add</button>
     <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
   </div>
+

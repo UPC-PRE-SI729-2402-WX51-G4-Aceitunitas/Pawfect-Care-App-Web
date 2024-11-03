@@ -3,17 +3,17 @@ import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
-import { Pet } from '../../model/pet.entity';
-import { PetsService } from '../../services/pets.service';
-import { Router } from '@angular/router';
+
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
-import {MatRadioModule} from '@angular/material/radio';
+import { PetsClientComponent } from "../client-pets/pets-client.component";
 @Component({
-  selector: 'app-pet-create',
+  selector: 'app-client-edit',
   standalone: true,
   imports: [
     FormsModule,
@@ -28,34 +28,36 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSelectModule,
     MatOptionModule,
     MatRadioModule,
-  ],
-  templateUrl: './pet-create.component.html',
-  styleUrl: './pet-create.component.css'
+    PetsClientComponent
+],
+  templateUrl: './client-edit.component.html',
+  styleUrl: './client-edit.component.css'
 })
-export class PetCreateComponent implements OnInit {
-  @Input() pet!:Pet;
+export class ClientEditComponent implements OnInit {
+  @Input() client!: Client;
 
-  @ViewChild('petForm', { static: false }) protected petForm!: NgForm;
+  @ViewChild('clientForm', { static: false }) protected clientForm!: NgForm;
 
   options: Client[] = [];
+  clientId!: number;
 
-
-  constructor(private petService: PetsService, private clientService: ClientsService,private router: Router) {
-    this.pet = new Pet({});
+  constructor(private route: ActivatedRoute,private clientService: ClientsService,private router: Router) {
+    this.client = new Client({});
   }
 
-
   ngOnInit() {
+    this.clientId = +this.route.snapshot.paramMap.get('id')!;
     this.getAllOwners();
+    this.getClientById();
   }
 
   private resetEditState() {
-    this.petForm.reset();
+    this.getClientById();
   }
 
   private isValid(): boolean {
-  if(this.petForm.value.ownerId==0)return false;
-    return this.petForm.valid || false;
+    if(this.clientForm.value.ownerId==0)return false;
+    return this.clientForm.valid || false;
   }
 
   getAllOwners(){
@@ -64,29 +66,31 @@ export class PetCreateComponent implements OnInit {
     });
   }
 
+  getClientById(){
+    this.clientService.getById(this.clientId).subscribe((response: Client) => {
+      this.client = response;
+    });
+  }
+  
 
   onSubmit() {
-
     if (this.isValid()) {
-      this.createPet();
+      this.editClient();
       this.resetEditState();
     } else {
       console.error('Invalid form data');
     }
   }
 
-  createPet() {
-    console.log(this.pet)
-    this.petService.create(this.pet).subscribe((response: Pet) => {
-
-      this.router.navigate(['/manage/pets']);
+  editClient() {
+    this.clientService.update(this.client.id,this.client).subscribe((response: Client) => {
+      console.log(response,this.client)
+      this.router.navigate(['/manage/clients']);
       this.resetEditState();
     });
   }
 
   onCancel() {
-    this.router.navigate(['/manage/pets']);
+    this.router.navigate(['/manage/clients']);
   }
-
-
 }

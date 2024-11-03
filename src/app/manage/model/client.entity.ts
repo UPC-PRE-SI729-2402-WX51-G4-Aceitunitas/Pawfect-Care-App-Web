@@ -1,28 +1,23 @@
-export class Client {
+
+  export class Client {
     id: number;
     fullName: string;
-    phone: string;
+    phoneNumber: string;
     email: string;
     address: string;
-    status: string;
-    hc: number;
   
-    constructor(client: {
-      id?: number,
-      fullName?: string,
-      phone?: string,
-      email?: string,
-      address?: string,
-      status?: string,
-      hc?: number
+    constructor(owner: {
+      id?: number;
+      fullName?: string;
+      phoneNumber?: string;
+      email?: string;
+      address?: string;
     }) {
-      this.id = client.id || 0;
-      this.fullName = client.fullName || '';
-      this.phone = client.phone || '';
-      this.email = client.email || '';
-      this.address = client.address || '';
-      this.status = client.status || '';
-      this.hc = client.hc || 0;
+      this.id = owner.id || 0;
+      this.fullName = owner.fullName || '';
+      this.phoneNumber = owner.phoneNumber || '';
+      this.email = owner.email || '';
+      this.address = owner.address || '';
     }
   }
   

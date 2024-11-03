@@ -52,20 +52,22 @@ export class PetsManagementComponent implements OnInit {
   protected petData!: Pet;
   protected columnsToDisplay: string[] =  [
     "id",
+    "petName",
     "birthDate",
     "registrationDate",
-    "breed",
-    "gender",
+    "animalBreed",
+    "petGender",
     "hc",
     "actions"
   ];
+
   @ViewChild(MatSort, {static: false})
   protected sort!: MatSort;
 
   @ViewChild(MatPaginator, {static: false})
   protected paginator!: MatPaginator;
 
-  protected dataSource!: MatTableDataSource<any>;
+  protected dataSource!: MatTableDataSource<Pet>;
 
   private petService: PetsService = inject(PetsService);
 
@@ -73,6 +75,7 @@ export class PetsManagementComponent implements OnInit {
     this.petData = new Pet({});
     this.dataSource = new MatTableDataSource();
   }
+  
   ngOnInit() {
     this.getAllPets();
   }
@@ -91,5 +94,9 @@ export class PetsManagementComponent implements OnInit {
   navigateToAddPet() {
     this.router.navigate(['/manage/pets/add']);
   }
+  navigateToEditPet(idPet: number) {
+    this.router.navigate([`/manage/pets/edit/${idPet}`]);
+  }
+  
 
 }

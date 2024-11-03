@@ -35,4 +35,15 @@ export class BaseService<T> {
   public getAll(): Observable<Array<T>> {
     return this.http.get<Array<T>>(this.resourcePath(), this.httpOptions);
   }
+
+  public getById(id: any): Observable<T> {
+    return this.http.get<T>(`${this.resourcePath()}/${id}`, this.httpOptions);
+  }
+
+
 }
+
+
+// public getAllById(id: any,itemPath:string): Observable<Array<T>> {
+//   return this.http.get<Array<T>>(`${this.resourcePath()}/${id}/${itemPath}`, this.httpOptions);
+// }

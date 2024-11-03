@@ -1,0 +1,20 @@
+<h2>Edit Client</h2>
+<form #clientForm="ngForm" (submit)="onSubmit()" class="form">
+  <mat-form-field id="full-name-form-field">
+    <input matInput [(ngModel)]="client.fullName" name="fullName" placeholder="Full Name" required />
+  </mat-form-field>
+  <mat-form-field id="phone-form-field">
+    <input matInput [(ngModel)]="client.phoneNumber" name="phoneNumber" placeholder="Phone" required />
+  </mat-form-field>
+  <mat-form-field id="email-form-field">
+    <input matInput [(ngModel)]="client.email" name="email" placeholder="Email" required />
+  </mat-form-field>
+  <mat-form-field id="address-form-field">
+    <input matInput [(ngModel)]="client.address" name="address" placeholder="Address" required />
+  </mat-form-field>
+  <app-pets-client></app-pets-client>
+
+  <div class="button-container">
+    <button mat-stroked-button type="submit">Update</button>
+    <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+  </div>

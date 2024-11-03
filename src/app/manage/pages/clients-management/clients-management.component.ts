@@ -54,13 +54,12 @@ export class ClientsManagementComponent {
   protected columnsToDisplay: string[] = [
     "id",
     "fullName",
-    "phone",
+    "phoneNumber",
     "email",
     "address",
-    "status",
-    "hc",
     'actions'
   ];
+
 
   @ViewChild(MatSort, {static: false})
   protected sort!: MatSort;
@@ -68,7 +67,7 @@ export class ClientsManagementComponent {
   @ViewChild(MatPaginator, {static: false})
   protected paginator!: MatPaginator;
 
-  protected dataSource!: MatTableDataSource<any>;
+  protected dataSource!: MatTableDataSource<Client>;
 
   private clientService: ClientsService = inject(ClientsService);
 
@@ -93,5 +92,10 @@ export class ClientsManagementComponent {
   navigateToAddClient() {
     this.router.navigate(['/manage/clients/add']);
   }
+
+  navigateToEditClient(idClient: number) {
+    this.router.navigate([`/manage/clients/edit/${idClient}`]);
+  }
+  
 
 }

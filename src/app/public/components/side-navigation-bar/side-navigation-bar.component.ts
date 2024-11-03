@@ -35,7 +35,7 @@ export class SideNavigationBarComponent {
     { path: '/', title: 'Home' },
     { path: '/manage/pets', title: 'List pets' },
     { path: '/manage/clients', title: 'List clients' },
-    { path: '/manage/events', title: 'List events' },
+    { path: '/manage/appointments', title: 'List appointments' },
     { path: '/login', title: 'Login' },
   ];
 
