@@ -41,7 +41,7 @@ export class ClientEditComponent implements OnInit {
   options: Client[] = [];
   clientId!: number;
 
-  constructor(private route: ActivatedRoute,private clientService: ClientsService,private router: Router) {
+  constructor(private route: ActivatedRoute,private router: Router,private clientService: ClientsService) {
     this.client = new Client({});
   }
 

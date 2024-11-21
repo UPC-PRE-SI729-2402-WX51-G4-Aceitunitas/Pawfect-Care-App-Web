@@ -1,15 +1,12 @@
 <div class="pet-list">
     <h2>{{'pets.home.title' | translate}}</h2>
-
-
-
     <div class="header-actions">
         <mat-form-field class="search-full-width">
             <mat-label>Search pets</mat-label>
             <input matInput [(ngModel)]="searchQuery" (input)="applyFilter()" matInput placeholder="Search by name">
         </mat-form-field>
-        <!-- <button class="button-add" mat-stroked-button (click)="navigateToAddPet()">{{'pets1.home.button' |
-            translate}}</button> -->
+        <button class="button-add" mat-stroked-button (click)="navigateToAddClient()">{{'pets1.home.button' |
+            translate}}</button>
     </div>
     <!-- DATA TABLE -->
 

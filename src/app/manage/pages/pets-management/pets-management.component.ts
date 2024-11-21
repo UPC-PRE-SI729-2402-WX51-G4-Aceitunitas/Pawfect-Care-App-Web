@@ -95,9 +95,13 @@ export class PetsManagementComponent implements OnInit {
     this.dataSource.filter = this.searchQuery.trim().toLowerCase();  
   }
 
-  // navigateToAddPet() {
-  //   this.router.navigate(['/manage/pets/add']);
-  // }
+  navigateToAddClient() {
+    this.router.navigate(['/manage/clients/add']);
+  }
+
+  navigAddPetToClientateToAddPet() {
+    this.router.navigate(['/manage/clients/add']);
+  }
   navigateToEditPet(idPet: number) {
     this.router.navigate([`/manage/pets/edit/${idPet}`]);
   }

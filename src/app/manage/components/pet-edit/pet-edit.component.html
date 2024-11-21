@@ -1,25 +1,29 @@
 <h2>Edit Pet</h2>
 <form #petForm="ngForm" (submit)="onSubmit()" class="form">
   <mat-form-field id="name-form-field">
+    <mat-label>Pet Name</mat-label>
     <input matInput [(ngModel)]="pet.petName" name="petName" placeholder="Pet Name" required />
   </mat-form-field>
 
   <mat-form-field id="birth-date-form-field">
+    <mat-label>Birth Date</mat-label>
     <input matInput [(ngModel)]="pet.birthDate" name="birthDate" placeholder="Birth Date" required type="date" />
   </mat-form-field>
 
   <mat-form-field id="registration-date-form-field">
+    <mat-label>Registration Date</mat-label>
     <input matInput [(ngModel)]="pet.registrationDate" name="registrationDate" placeholder="Registration Date" required
       type="date" />
   </mat-form-field>
 
   <mat-form-field id="breed-form-field">
+    <mat-label>Breed </mat-label>
     <input matInput [(ngModel)]="pet.animalBreed" name="animalBreed" placeholder="Breed" required />
   </mat-form-field>
 
   <mat-form-field id="owner-form-field" appearance="fill">
     <mat-label>Choose owner</mat-label>
-    <mat-select name="ownerId" [(ngModel)]="pet.ownerId" required>
+    <mat-select name="ownerId" [(ngModel)]="pet.ownerId" disabled>
       <mat-option [value]="0">
         No  selected owner
       </mat-option>

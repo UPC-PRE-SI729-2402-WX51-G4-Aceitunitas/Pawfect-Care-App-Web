@@ -17,8 +17,8 @@ mat-card {
 
 .button-container {
   display: flex;
-  flex-direction: column; /* Alinea los botones verticalmente */
-  margin-top: 20px; /* Espacio entre el formulario y el botón */
+  flex-direction: row;
+  gap: 10px; 
 }
 
 .submit-button {

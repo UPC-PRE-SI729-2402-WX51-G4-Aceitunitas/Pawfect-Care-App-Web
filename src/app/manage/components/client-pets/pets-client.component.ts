@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {  Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { Pet } from '../../model/pet.entity';
 import { PetsService } from '../../services/pets.service';
 import { TranslateModule } from "@ngx-translate/core";
@@ -13,8 +13,8 @@ import {
   MatTable,
   MatTableDataSource
 } from "@angular/material/table";
-import {MatSort, MatSortHeader} from "@angular/material/sort";
-import {MatPaginator} from "@angular/material/paginator";
+import { MatSort, MatSortHeader } from "@angular/material/sort";
+import { MatPaginator } from "@angular/material/paginator";
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
@@ -25,19 +25,19 @@ import { MatButton } from '@angular/material/button';
   selector: 'app-pets-client',
   standalone: true,
   imports: [
-    CommonModule, 
-    MatCell, 
-    MatCellDef, 
-    MatColumnDef, 
-    MatHeaderCell, 
-    MatHeaderRow, 
-    MatHeaderRowDef, 
-    MatPaginator, 
-    MatRow, 
-    MatRowDef, 
-    MatSort, 
-    MatSortHeader, 
-    MatTable, 
+    CommonModule,
+    MatCell,
+    MatCellDef,
+    MatColumnDef,
+    MatHeaderCell,
+    MatHeaderRow,
+    MatHeaderRowDef,
+    MatPaginator,
+    MatRow,
+    MatRowDef,
+    MatSort,
+    MatSortHeader,
+    MatTable,
     MatHeaderCellDef,
     FormsModule,
     MatFormField,
@@ -50,7 +50,7 @@ import { MatButton } from '@angular/material/button';
 })
 export class PetsClientComponent implements OnInit {
   protected petData!: Pet;
-  protected columnsToDisplay: string[] =  [
+  protected columnsToDisplay: string[] = [
     "id",
     "petName",
     "birthDate",
@@ -61,10 +61,10 @@ export class PetsClientComponent implements OnInit {
     "actions"
   ];
 
-  @ViewChild(MatSort, {static: false})
+  @ViewChild(MatSort, { static: false })
   protected sort!: MatSort;
 
-  @ViewChild(MatPaginator, {static: false})
+  @ViewChild(MatPaginator, { static: false })
   protected paginator!: MatPaginator;
 
   protected dataSource!: MatTableDataSource<Pet>;
@@ -73,11 +73,11 @@ export class PetsClientComponent implements OnInit {
 
   private petService: PetsService = inject(PetsService);
 
-  constructor(private route: ActivatedRoute,private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.petData = new Pet({});
     this.dataSource = new MatTableDataSource();
   }
-  
+
   ngOnInit() {
     this.clientId = +this.route.snapshot.paramMap.get('id')!;
     this.getAllPetsByOwnerId();
@@ -88,10 +88,17 @@ export class PetsClientComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
-  getAllPetsByOwnerId(){
+  getAllPetsByOwnerId() {
     this.petService.getPetsByOwnerId(this.clientId).subscribe((response: Array<Pet>) => {
       this.dataSource.data = response;
     });
+  }
+  AddPetToClient() {
+    this.router.navigate([`/manage/clients/${this.clientId}/add_pet`]);
+  }
+
+  navigateToHcPet(medicalHistoryId: string) {
+    this.router.navigate([`/manage/medicalHistory/${medicalHistoryId}`]);
   }
 
 

@@ -5,13 +5,13 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { Pet } from '../../model/pet.entity';
 import { PetsService } from '../../services/pets.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 @Component({
   selector: 'app-pet-create',
   standalone: true,
@@ -33,19 +33,20 @@ import {MatRadioModule} from '@angular/material/radio';
   styleUrl: './pet-create.component.css'
 })
 export class PetCreateComponent implements OnInit {
-  @Input() pet!:Pet;
+  @Input() pet!: Pet;
 
   @ViewChild('petForm', { static: false }) protected petForm!: NgForm;
-
+  clientId!: number;
   options: Client[] = [];
 
 
-  constructor(private petService: PetsService, private clientService: ClientsService,private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private petService: PetsService, private clientService: ClientsService) {
     this.pet = new Pet({});
   }
 
 
   ngOnInit() {
+    this.clientId = +this.route.snapshot.paramMap.get('id')!;
     this.getAllOwners();
   }
 
@@ -54,13 +55,13 @@ export class PetCreateComponent implements OnInit {
   }
 
   private isValid(): boolean {
-  if(this.petForm.value.ownerId==0)return false;
+    if (!this.clientId) return false;
     return this.petForm.valid || false;
   }
 
-  getAllOwners(){
+  getAllOwners() {
     this.clientService.getAll().subscribe((response: Client[]) => {
-      this.options=response;
+      this.options = response;
     });
   }
 
@@ -76,13 +77,18 @@ export class PetCreateComponent implements OnInit {
   }
 
   createPet() {
-    this.petService.create(this.pet).subscribe((response: Pet) => {
-      this.router.navigate(['/manage/pets']);
+    const dataPet = {
+      ...this.pet,
+      ownerId: this.clientId
+    }
+    this.petService.create(dataPet).subscribe((response: Pet) => {
+
+      this.router.navigate([`/manage/clients/edit/${response.ownerId}`]);
     });
   }
 
   onCancel() {
-    this.router.navigate(['/manage/pets']);
+    this.router.navigate([`/manage/clients/edit/${this.clientId}`]);
   }
 
 
