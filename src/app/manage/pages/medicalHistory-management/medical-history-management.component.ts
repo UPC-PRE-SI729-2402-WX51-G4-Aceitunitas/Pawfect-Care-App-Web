@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, ViewChild } from '@angular/core';
-import { MedicalHistory } from '../../model/medical-history.entity';
-import { MedicalHistoryService } from '../../services/medical-history.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -16,12 +14,18 @@ import {
   MatTable,
   MatTableDataSource
 } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MatFormField } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
-
+import { MedicalAppointment } from '../../model/medical-appointment.entity';
+import { MedicalAppointmentService } from '../../services/medical-appointment.service';
+import { AppointmentsService } from '../../services/appointments.service';
+import { Appointment } from '../../model/appointment.entity';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 @Component({
   selector: 'app-medical-history-management',
   standalone: true,
@@ -37,10 +41,13 @@ import { MatButton } from '@angular/material/button';
     MatSort,
     MatTable,
     FormsModule,
-    MatFormField,
-    MatInput,
+    MatFormFieldModule,
+    MatInputModule,
     MatButton,
-    TranslateModule
+    TranslateModule,
+    MatCardModule,
+    MatChipsModule,
+    MatProgressBarModule
   ],
   templateUrl: './medical-history-management.component.html',
   styleUrls: ['./medical-history-management.component.css']
@@ -48,6 +55,11 @@ import { MatButton } from '@angular/material/button';
 export class MedicalHistoryManagementComponent {
   // Propiedad para el texto ingresado por el usuario
   protected newHistoryDescription: string = '';
+  isEditing: boolean = false;
+  medicalHistoryId!: number;
+  private medicalAppointmentService: MedicalAppointmentService = inject(MedicalAppointmentService);
+
+  private appointmentService: AppointmentsService = inject(AppointmentsService);
 
   @ViewChild(MatSort, { static: false })
   protected sort!: MatSort;
@@ -57,12 +69,13 @@ export class MedicalHistoryManagementComponent {
 
   protected dataSource: MatTableDataSource<any>;
 
-  constructor(private medicalHistoryService: MedicalHistoryService) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit() {
-    this.getAllMedicalHistories();
+    this.medicalHistoryId = +this.route.snapshot.paramMap.get('id')!;
+    this.getAllMedicalAppointmentsWithDetails();
   }
 
   ngAfterViewInit(): void {
@@ -70,28 +83,62 @@ export class MedicalHistoryManagementComponent {
     this.dataSource.paginator = this.paginator;
   }
 
-  // Obtener los registros médicos (simulación del backend actual)
-  getAllMedicalHistories() {
-    this.medicalHistoryService.getAll().subscribe((response: Array<any>) => {
-      this.dataSource.data = response;
+  getAppointmentById(appointmentId: number) {
+    this.appointmentService.getById(appointmentId).subscribe((response: Appointment) => {
+      console.log(response);
+    });
+  }
+
+  editHistory(record: any) {
+    record.isEditing = !record.isEditing;
+    if (!record.isEditing) {
+      const updatedRecord = {
+        ...record,
+        isEditing: !record.isEditing,
+        diagnosis: record.diagnosis,
+        notes: record.notes,
+        treatment: record.treatment,
+      }
+      this.medicalAppointmentService.update(record.id, updatedRecord).subscribe({
+        next: (updatedRecord) => {
+          console.log('Record updated successfully:', updatedRecord);
+          const index = this.dataSource.data.findIndex(item => item.id === record.id);
+          if (index !== -1) {
+            this.dataSource.data[index] = updatedRecord;
+          }
+        },
+        error: (error) => {
+          console.error('Error updating record:', error);
+          record.isEditing = true;
+        },
+      });
+
+
+    } 
+  }
+
+  getAllMedicalAppointmentsWithDetails() {
+    this.medicalAppointmentService.getAllMedicalAppointmentsByMedicalHistoryId(this.medicalHistoryId).subscribe((medicalAppointments: Array<MedicalAppointment>) => {
+      // Crear una nueva lista para almacenar las citas con detalles
+      const enhancedMedicalAppointments: Array<any> = [];
+      medicalAppointments.forEach((medicalAppointment) => {
+        this.appointmentService.getById(medicalAppointment.appointmentId).subscribe((appointment: Appointment) => {
+          // Agregar los detalles de la cita al objeto actual
+          enhancedMedicalAppointments.push({
+            ...medicalAppointment,
+            ...appointment,
+            isEditing: false
+          });
+
+          if (enhancedMedicalAppointments.length === medicalAppointments.length) {
+            this.dataSource.data = enhancedMedicalAppointments.sort((a, b) => a.id - b.id);
+          }
+        });
+      });
     });
   }
 
   // Añadir una nueva descripción al historial
-  addHistory() {
-    if (this.newHistoryDescription.trim()) {
-      // Crear un nuevo registro temporal
-      const newRecord = {
-        date: new Date().toISOString().split('T')[0], // Fecha actual en formato YYYY-MM-DD
-        diagnosis: this.newHistoryDescription
-      };
 
-      // Actualizar el historial
-      this.dataSource.data = [newRecord, ...this.dataSource.data];
-
-      // Limpiar el campo
-      this.newHistoryDescription = '';
-    }
-  }
 }
 

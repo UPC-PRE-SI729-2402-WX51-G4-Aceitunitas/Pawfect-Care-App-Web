@@ -21,12 +21,19 @@
   border-radius: 8px;
   margin-bottom: 8px;
 }
-
 .record-date {
   font-weight: bold;
   margin-bottom: 8px;
 }
+.card-header{
+  margin-bottom: 12px;
+  display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 16px;
+border-bottom:1px solid #888;
 
+}
 .record-description {
   color: #555;
 }
@@ -50,12 +57,33 @@
 
 .record-item {
   margin-bottom: 12px;
-  padding: 8px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+
 }
 
 .no-records-message {
   text-align: center;
   color: #888;
+}
+
+.card-footer{
+  padding: 16px;
+}
+
+.edit-form {
+  min-width: 200px;
+  width: 100%;
+}
+
+.input-full-width {
+  width: 100%;
+}
+.span-title{
+  font-weight: bold;
+  width: 120px;
+  margin-top: 16px;
+}
+.wrapper-input{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 }

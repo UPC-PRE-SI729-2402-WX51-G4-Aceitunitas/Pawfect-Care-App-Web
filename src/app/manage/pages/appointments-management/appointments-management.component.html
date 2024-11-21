@@ -1,10 +1,13 @@
 <div class="pet-list">
   <h2>{{'event.home.title' | translate}}</h2>
-  <div class="controls-container">
-    <mat-form-field>
-      <input matInput type="text" placeholder="Search Appointments" class="search-input" />
+
+  <div class="header-actions">
+    <mat-form-field class="search-full-width">
+      <mat-label>Search Appointments</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (input)="applyFilter()" matInput placeholder="Search by name">
     </mat-form-field>
-    <button mat-stroked-button (click)="navigateToAddAppointment()">{{'event1.home.button' | translate}}</button>
+    <button class="button-add" mat-stroked-button (click)="navigateToAddAppointment()">{{'event1.home.button' |
+      translate}}</button>
   </div>
 
   <!-- DATA TABLE -->

@@ -2,12 +2,16 @@
   <h2>{{'clients.home.title' | translate}}</h2>
 
 
-  <div class="controls-container">
-    <mat-form-field>
-        <input matInput type="text" placeholder="Search clients" class="search-input" />
+
+
+  <div class="header-actions">
+    <mat-form-field class="search-full-width">
+      <mat-label>Search clients</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (input)="applyFilter()" matInput placeholder="Search by name">
     </mat-form-field>
-    <button mat-stroked-button (click)="navigateToAddClient()">{{'clients1.home.button' | translate}}</button>
-</div>
+    <button class="button-add" mat-stroked-button (click)="navigateToAddClient()">{{'clients1.home.button' |
+      translate}}</button>
+  </div>
 
   <!-- DATA TABLE -->
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
@@ -35,7 +39,8 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">Actions</th>
       <td mat-cell *matCellDef="let client">
         <div class="button-container">
-          <button (click)="navigateToEditClient(client.id)" mat-stroked-button>{{'clients.home.buttons.edit' | translate}}</button>
+          <button (click)="navigateToEditClient(client.id)" mat-stroked-button>{{'clients.home.buttons.edit' |
+            translate}}</button>
         </div>
       </td>
     </ng-container>

@@ -17,8 +17,8 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, MatSortHeader} from "@angular/material/sort";
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MatFormField } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import {  MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 
 @Component({
@@ -39,11 +39,11 @@ import { MatButton } from '@angular/material/button';
     MatSortHeader, 
     MatTable, 
     MatHeaderCellDef,
-    FormsModule,
-    MatFormField,
-    MatInput,
     MatButton,
-    TranslateModule
+    TranslateModule,
+    FormsModule, 
+    MatFormFieldModule, 
+    MatInputModule
   ],
   templateUrl: './clients-management.component.html',
   styleUrl: './clients-management.component.css'
@@ -63,7 +63,7 @@ export class ClientsManagementComponent {
 
   @ViewChild(MatSort, {static: false})
   protected sort!: MatSort;
-
+  protected   searchQuery: string = ''; 
   @ViewChild(MatPaginator, {static: false})
   protected paginator!: MatPaginator;
 
@@ -88,6 +88,10 @@ export class ClientsManagementComponent {
       this.dataSource.data = response;
     });
   }
+  applyFilter() {
+    this.dataSource.filter = this.searchQuery.trim().toLowerCase();  
+  }
+
 
   navigateToAddClient() {
     this.router.navigate(['/manage/clients/add']);

@@ -12,8 +12,8 @@ import {
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort, MatSortHeader} from "@angular/material/sort";
 import {FormsModule} from "@angular/forms";
-import {MatFormField} from "@angular/material/form-field";
-import {MatInput} from "@angular/material/input";
+import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
+import {MatInput, MatInputModule} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
 import {TranslateModule} from "@ngx-translate/core";
 import {Pet} from "../../model/pet.entity";
@@ -40,11 +40,15 @@ import {AppointmentsService} from "../../services/appointments.service";
     MatSortHeader,
     MatTable,
     MatHeaderCellDef,
-    FormsModule,
-    MatFormField,
-    MatInput,
     MatButton,
-    TranslateModule, MatButtonToggleGroup, MatButtonToggle],
+    TranslateModule, 
+    MatButtonToggleGroup, 
+    MatButtonToggle,
+    FormsModule, 
+    MatFormFieldModule, 
+    MatInputModule
+  
+  ],
   templateUrl: './appointments-management.component.html',
   styleUrl: './appointments-management.component.css'
 })
@@ -59,7 +63,7 @@ export class AppointmentsManagementComponent implements OnInit {
     "isMedical",
     "actions"
   ];
-
+  protected   searchQuery: string = ''; 
   @ViewChild(MatSort, {static: false})
   protected sort!: MatSort;
 
@@ -75,6 +79,10 @@ export class AppointmentsManagementComponent implements OnInit {
     this.dataSource = new MatTableDataSource();
   }
 
+  applyFilter() {
+    this.dataSource.filter = this.searchQuery.trim().toLowerCase();  
+  }
+  
   ngOnInit() {
     this.getAllAppointments();
   }

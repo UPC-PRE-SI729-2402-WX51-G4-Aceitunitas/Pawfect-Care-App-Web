@@ -18,7 +18,7 @@ export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'manage/medicalHistory', component: MedicalHistoryManagementComponent },
+    {path: 'manage/medicalHistory/:id', component: MedicalHistoryManagementComponent },
     {path: 'manage/pets', component: PetsManagementComponent},
     {path: 'manage/pets/add', component: PetCreateComponent},
     {path: 'manage/pets/edit/:id', component: PetEditComponent},

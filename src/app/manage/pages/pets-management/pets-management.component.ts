@@ -17,8 +17,8 @@ import {MatSort, MatSortHeader} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MatFormField } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 
 @Component({
@@ -39,11 +39,11 @@ import { MatButton } from '@angular/material/button';
     MatSortHeader, 
     MatTable, 
     MatHeaderCellDef,
-    FormsModule,
-    MatFormField,
-    MatInput,
     MatButton,
-    TranslateModule
+    TranslateModule,
+    FormsModule, 
+    MatFormFieldModule, 
+    MatInputModule
   ],
   templateUrl: './pets-management.component.html',
   styleUrl: './pets-management.component.css'
@@ -66,6 +66,7 @@ export class PetsManagementComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: false})
   protected paginator!: MatPaginator;
+  protected   searchQuery: string = ''; 
 
   protected dataSource!: MatTableDataSource<Pet>;
 
@@ -90,12 +91,18 @@ export class PetsManagementComponent implements OnInit {
       this.dataSource.data = response;
     });
   }
-
-  navigateToAddPet() {
-    this.router.navigate(['/manage/pets/add']);
+  applyFilter() {
+    this.dataSource.filter = this.searchQuery.trim().toLowerCase();  
   }
+
+  // navigateToAddPet() {
+  //   this.router.navigate(['/manage/pets/add']);
+  // }
   navigateToEditPet(idPet: number) {
     this.router.navigate([`/manage/pets/edit/${idPet}`]);
+  }
+  navigateToMedicalHistory(medicalHistoryId: number) {
+    this.router.navigate([`/manage/medicalHistory/${medicalHistoryId}`]);
   }
   
 
