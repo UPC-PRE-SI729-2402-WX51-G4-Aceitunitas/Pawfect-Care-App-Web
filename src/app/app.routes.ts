@@ -12,17 +12,13 @@ import { PetCreateComponent } from './manage/components/pet-create/pet-create.co
 import { PetEditComponent } from './manage/components/pet-edit/pet-edit.component';
 import { ClientEditComponent } from './manage/components/client-edit/client-edit.component';
 import {AppointmentEditComponent} from "./manage/components/appointment-edit/appointment-edit.component";
-
-/*import {
-  MedicalHistoryManagementComponent
-} from "./manage/pages/medicalHistory-management/medical-history-management.component";*/
-
+import { MedicalHistoryManagementComponent } from "./manage/pages/medicalHistory-management/medical-history-management.component";
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
-    /*{path: 'manage/medicalHistory', component: MedicalHistoryManagementComponent},*/
+    {path: 'manage/medicalHistory', component: MedicalHistoryManagementComponent },
     {path: 'manage/pets', component: PetsManagementComponent},
     {path: 'manage/pets/add', component: PetCreateComponent},
     {path: 'manage/pets/edit/:id', component: PetEditComponent},
