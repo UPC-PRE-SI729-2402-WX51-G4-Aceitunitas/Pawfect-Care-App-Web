@@ -1,21 +1,12 @@
 export class MedicalHistory  {
   id: number;
-  petName: string;
-  date: string;
-  diagnosis: string;
-  treatment: string;
+  notes: string;
 
-  constructor(record: {
+  constructor(medicalHistory: {
     id?: number,
-    petName?: string,
-    date?: string,
-    diagnosis?: string,
-    treatment?: string
+    notes?: string,
   }) {
-    this.id = record.id || 0;
-    this.petName = record.petName || '';
-    this.date = record.date || '';
-    this.diagnosis = record.diagnosis || '';
-    this.treatment = record.treatment || '';
+    this.id = medicalHistory.id || 0;
+    this.notes = medicalHistory.notes || '';
   }
 }
