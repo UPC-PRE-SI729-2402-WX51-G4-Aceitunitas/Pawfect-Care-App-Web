@@ -76,11 +76,8 @@ export class PetCreateComponent implements OnInit {
   }
 
   createPet() {
-    console.log(this.pet)
     this.petService.create(this.pet).subscribe((response: Pet) => {
-
       this.router.navigate(['/manage/pets']);
-      this.resetEditState();
     });
   }
 
