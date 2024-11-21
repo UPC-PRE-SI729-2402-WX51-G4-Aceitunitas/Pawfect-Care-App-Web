@@ -1,4 +1,4 @@
-/*import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MedicalHistoryManagementComponent } from './medical-history-management.component';
 
@@ -21,4 +21,4 @@ describe('EventsManagementComponent', () => {
         expect(component).toBeTruthy();
     });
 });
-*/
+

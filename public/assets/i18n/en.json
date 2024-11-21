@@ -127,5 +127,30 @@
         }
       }
     }
+  },
+  "medicalHistory": {
+    "title": "Medical History",
+    "searchPlaceholder": "Search medical records",
+    "addRecordButton": "Add Record",
+    "noRecordsMessage": "No records available",
+    "columns": {
+      "recordId": "Record ID",
+      "petName": "Pet Name",
+      "date": "Date",
+      "diagnosis": "Diagnosis",
+      "treatment": "Treatment",
+      "actions": "Actions"
+    },
+    "buttons": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "addNewPetHistoryTitle": "Add New Pet History",
+    "addNewPetHistoryButton": "Add New History",
+    "chronologicalTitle": "Chronological List of Medical Events",
+    "downloadHistoryButton": "Download History",
+    "historyDescriptionPlaceholder": "Enter the medical event description...",
+    "petMedicalHistoryFormTitle": "Pet Medical History Form",
+    "timelineSubtitle": "Timeline of medical procedures and treatments"
   }
 }

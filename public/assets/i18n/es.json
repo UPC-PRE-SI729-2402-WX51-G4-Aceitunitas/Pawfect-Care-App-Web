@@ -125,6 +125,31 @@
         "invalidEmail": "No es un correo válido"
       }
     }
+  },
+  "medicalHistory": {
+    "title": "Historial Médico",
+    "searchPlaceholder": "Buscar registros médicos",
+    "addRecordButton": "Agregar Registro",
+    "noRecordsMessage": "No hay registros disponibles",
+    "columns": {
+      "recordId": "ID del Registro",
+      "petName": "Nombre de la Mascota",
+      "date": "Fecha",
+      "diagnosis": "Diagnóstico",
+      "treatment": "Tratamiento",
+      "actions": "Acciones"
+    },
+    "buttons": {
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "addNewPetHistoryTitle": "Agregar Nuevo Historial de Mascota",
+    "addNewPetHistoryButton": "Agregar Nuevo Historial",
+    "chronologicalTitle": "Lista Cronológica de Eventos Médicos",
+    "downloadHistoryButton": "Descargar Historial",
+    "historyDescriptionPlaceholder": "Ingrese la descripción del evento médico...",
+    "petMedicalHistoryFormTitle": "Formulario de Historial Médico de la Mascota",
+    "timelineSubtitle": "Cronología de procedimientos y tratamientos médicos"
   }
 }
 

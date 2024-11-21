@@ -1,4 +1,4 @@
-/*import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, inject, ViewChild } from '@angular/core';
 import { MedicalHistory } from '../../model/medical-history.entity';
 import { MedicalHistoryService } from '../../services/medical-history.service';
@@ -46,16 +46,8 @@ import { MatButton } from '@angular/material/button';
   styleUrls: ['./medical-history-management.component.css']
 })
 export class MedicalHistoryManagementComponent {
-  protected medicalHistoryData!: MedicalHistory;
-  protected columnsToDisplay: string[] = [
-    'id',
-    'petName',
-    'date',
-    'condition',
-    'treatment',
-    'vet',
-    'actions'
-  ];
+  // Propiedad para el texto ingresado por el usuario
+  protected newHistoryDescription: string = '';
 
   @ViewChild(MatSort, { static: false })
   protected sort!: MatSort;
@@ -63,12 +55,9 @@ export class MedicalHistoryManagementComponent {
   @ViewChild(MatPaginator, { static: false })
   protected paginator!: MatPaginator;
 
-  protected dataSource!: MatTableDataSource<any>;
+  protected dataSource: MatTableDataSource<any>;
 
-  private medicalHistoryService: MedicalHistoryService = inject(MedicalHistoryService);
-
-  constructor(private router: Router) {
-    this.medicalHistoryData = new MedicalHistory({});
+  constructor(private medicalHistoryService: MedicalHistoryService) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -81,15 +70,28 @@ export class MedicalHistoryManagementComponent {
     this.dataSource.paginator = this.paginator;
   }
 
+  // Obtener los registros médicos (simulación del backend actual)
   getAllMedicalHistories() {
-    this.medicalHistoryService.getAll().subscribe((response: Array<MedicalHistory>) => {
+    this.medicalHistoryService.getAll().subscribe((response: Array<any>) => {
       this.dataSource.data = response;
     });
   }
 
-  navigateToAddHistory() {
-    this.router.navigate(['/manage/medical-history/add']); // Ruta para agregar historial médico
+  // Añadir una nueva descripción al historial
+  addHistory() {
+    if (this.newHistoryDescription.trim()) {
+      // Crear un nuevo registro temporal
+      const newRecord = {
+        date: new Date().toISOString().split('T')[0], // Fecha actual en formato YYYY-MM-DD
+        diagnosis: this.newHistoryDescription
+      };
+
+      // Actualizar el historial
+      this.dataSource.data = [newRecord, ...this.dataSource.data];
+
+      // Limpiar el campo
+      this.newHistoryDescription = '';
+    }
   }
 }
-*/
 
