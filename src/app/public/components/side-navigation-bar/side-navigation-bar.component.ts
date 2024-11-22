@@ -35,10 +35,10 @@ export class SideNavigationBarComponent {
 
   isSignedIn: boolean = false;
   options = [
-    { path: '/', title: 'Home' },
-    { path: '/manage/pets', title: 'List pets' },
-    { path: '/manage/clients', title: 'List clients' },
-    { path: '/manage/appointments', title: 'List appointments' },
+    { path: '/', title: 'Home',icon: 'home' },
+    { path: '/manage/pets', title: 'List pets',icon: 'pets' },
+    { path: '/manage/clients', title: 'List clients',icon: 'group' },
+    { path: '/manage/appointments', title: 'List appointments',icon: 'event' },
   ];
 
   constructor(private router: Router, private authenticationService: AuthenticationService) {
@@ -46,5 +46,7 @@ export class SideNavigationBarComponent {
   }
 
  
+
+
 
 }

@@ -18,8 +18,7 @@
     <button mat-stroked-button color="primary" (click)="addHistory()">
       {{ 'medicalHistory.addNewPetHistoryButton' | translate }}
     </button>
-  </div> -->
-
+  </div>-->
 
   <!-- Historial cronológico -->
   <div class="history-list">
@@ -30,7 +29,6 @@
         <button mat-stroked-button color="primary" (click)="editHistory(record)">
           {{ record.isEditing ? 'Save' : 'Edit' }}
         </button>
-
       </mat-card-header>
       <mat-card-content>
         <div class="edit-form">
@@ -45,7 +43,7 @@
             <span class="span-title">Treatment</span>
             <mat-form-field class="input-full-width">
               <mat-label>Treatment</mat-label>
-              <input name="treatment"  matInput [(ngModel)]="record.treatment" placeholder="Treatment" [disabled]="!record.isEditing">
+              <input name="treatment" matInput [(ngModel)]="record.treatment" placeholder="Treatment" [disabled]="!record.isEditing">
             </mat-form-field>
           </div>
           <div class="wrapper-input">
@@ -69,5 +67,4 @@
       <p>{{ 'medicalHistory.noRecordsMessage' | translate }}</p>
     </div>
   </div>
-
 </div>

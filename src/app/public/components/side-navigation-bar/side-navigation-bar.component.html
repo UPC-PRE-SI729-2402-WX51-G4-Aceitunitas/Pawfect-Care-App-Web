@@ -4,14 +4,13 @@
             Pawfect Care
         </mat-toolbar>
         <mat-nav-list class="navlist-container">
-            
-       
             @if (isSignedIn) {
-                @for (option of options; track option.title) {
-                    <a mat-list-item [routerLink]="option.path">
+                <ng-container *ngFor="let option of options">
+                    <a mat-list-item [routerLink]="option.path" routerLinkActive="active-link">
+                        <mat-icon *ngIf="option.icon" class="menu-icon">{{ option.icon }}</mat-icon>
                         {{ option.title}}
                     </a>
-                    }
+                </ng-container>
               } @else {
                 <app-authentication-section></app-authentication-section>
               }
@@ -24,6 +23,8 @@
                 <button mat-icon-button (click)="drawer.toggle()" type="button" aria-label="Sidenav toggle icon">
                     <mat-icon>menu</mat-icon>
                 </button>
+                <!-- Logo de la empresa -->
+                <img src="assets/images/perro.png" alt="Pawfect Care Logo" class="logo-img" />
                 <h2>Pawfect Care</h2>
             </div>
             <div class="left-buttons">

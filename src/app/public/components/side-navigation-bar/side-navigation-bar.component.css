@@ -1,35 +1,96 @@
+/* Estilo para el contenedor del sidenav */
+mat-sidenav-container {
+  height: 100vh; /* Hace que ocupe toda la altura de la pantalla */
+}
+
+/* Estilo del sidenav (barra lateral) */
+mat-sidenav {
+  background-color: #f7d0a3; /* Naranja pastel para el fondo */
+  color: #333;
+  width: 250px; /* Ajusta el ancho del sidebar */
+}
+
+/* Contenido del sidenav */
+mat-sidenav-content {
+  transition: padding-left 0.3s ease; /* Transición suave cuando se abra o cierre el sidenav */
+}
+
+/* Estilo de la barra de herramientas del sidenav */
+mat-toolbar {
+  background-color: #f7d0a3; /* Fondo naranja pastel */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Estilo de la lista de navegación */
+.mat-nav-list {
+  padding: 0;
+}
+
+/* Estilo de los elementos de la lista */
+.mat-list-item {
+  padding: 1rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+
+}
+
+.mat-list-item:hover {
+  background-color: #eaeaea; /* Efecto de hover con un color más claro */
+}
+
+/* Estilo de los botones dentro del toolbar */
+.left-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+}
+
+mat-icon-button {
+  color: white;
+}
+
+/* Ajustes en la apariencia del logo */
+.logo-container h2 {
+  font-size: 2rem; /* Ajuste del tamaño de fuente */
+  color: black; /* Color negro */
+  font-weight: bold; /* Negrita */
+  letter-spacing: 0.05rem; /* Espaciado entre letras */
+  margin-left: 10px;
+}
+
+/* Ajuste para el botón de Login */
+mat-stroked-button {
+  background-color: white;
+  color: #f7d0a3;
+  font-weight: bold;
+}
+
+mat-stroked-button:hover {
+  background-color: #f7d0a3;
+  color: white;
+}
+
 .toolbar-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: #f2f2f2;
-    padding:2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding:2rem;
 }
+
 .logo-container{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center;
-}
-.router-container{
-    max-width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
 }
 
-.side-content{
-    height: 100vh;
-}
-
-.navlist-container{
-    padding: 1rem;
-    background:#f2f2f2;
-    height: 100%;
-}
-.left-buttons{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center;
+/* Estilo de la imagen del logo */
+.logo-img {
+  width: 40px; /* Tamaño ajustado del logo */
+  height: auto;
+  border-radius: 50%; /* Si deseas bordes redondeados en la imagen */
 }
