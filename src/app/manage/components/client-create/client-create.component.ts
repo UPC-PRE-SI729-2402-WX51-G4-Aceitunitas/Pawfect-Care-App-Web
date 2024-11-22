@@ -7,6 +7,7 @@ import {MatFormField, MatLabel} from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
 import {Pet} from "../../model/pet.entity";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-client-create',
@@ -17,6 +18,7 @@ import {Pet} from "../../model/pet.entity";
     MatInput,
     MatButton,
     MatLabel,
+    TranslateModule,
   ],
   templateUrl: './client-create.component.html',
   styleUrl: './client-create.component.css'

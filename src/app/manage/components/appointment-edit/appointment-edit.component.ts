@@ -14,6 +14,7 @@ import {AppointmentsService} from "../../services/appointments.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Client} from "../../model/client.entity";
 import {ClientsService} from "../../services/clients.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 class ngOnInit {
 }
@@ -30,7 +31,8 @@ class ngOnInit {
     MatOption,
     MatSelect,
     MatSlideToggle,
-    NgForOf
+    NgForOf,
+    TranslateModule
   ],
   providers: [DatePipe],
   templateUrl: './appointment-edit.component.html',
