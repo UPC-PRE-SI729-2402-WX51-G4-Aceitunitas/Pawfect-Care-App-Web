@@ -14,7 +14,7 @@ import {MatSort, MatSortHeader} from "@angular/material/sort";
 import {FormsModule} from "@angular/forms";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInput, MatInputModule} from "@angular/material/input";
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatButtonModule} from "@angular/material/button";
 import {TranslateModule} from "@ngx-translate/core";
 import {Pet} from "../../model/pet.entity";
 import {PetsService} from "../../services/pets.service";
@@ -40,7 +40,7 @@ import {AppointmentsService} from "../../services/appointments.service";
     MatSortHeader,
     MatTable,
     MatHeaderCellDef,
-    MatButton,
+    MatButtonModule,
     TranslateModule, 
     MatButtonToggleGroup, 
     MatButtonToggle,

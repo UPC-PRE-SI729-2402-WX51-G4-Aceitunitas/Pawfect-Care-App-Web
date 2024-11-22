@@ -1,5 +1,4 @@
 <h2>{{ 'appointment.newAppointmentTitle' | translate }}</h2>
-<div class="form-section">
   <form #appointmentForm="ngForm" (submit)="onSubmit()" class="form">
 
     <mat-form-field class="input-full-width">
@@ -44,9 +43,9 @@
       </mat-select>
     </mat-form-field>
 
-    <div class="button-container">
-      <button mat-stroked-button type="submit">{{ 'appointment.addButton' | translate }}</button>
-      <button mat-stroked-button type="button" (click)="onCancel()">{{ 'appointment.cancelButton' | translate }}</button>
+    <div class="container-actions">
+      <button class="button-primary" mat-flat-button type="submit">{{ 'appointment.addButton' | translate }}</button>
+      <button class="button-secondary" mat-raised-button type="button" (click)="onCancel()">{{ 'appointment.cancelButton' | translate }}</button>
     </div>
   </form>
-</div>
+

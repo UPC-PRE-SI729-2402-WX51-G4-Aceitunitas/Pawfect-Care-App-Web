@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
 
@@ -20,7 +20,7 @@ import {TranslateModule} from "@ngx-translate/core";
     FormsModule,
     MatFormField,
     MatInput,
-    MatButton,
+    MatButtonModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -27,11 +27,10 @@
       <input matInput [(ngModel)]="client.address" name="address" placeholder="{{ 'newClient.addressPlaceholder' | translate }}" type="text" required />
     </mat-form-field>
 
-    <!-- Botones -->
-    <div class="button-container">
-      <button mat-stroked-button type="submit">{{ 'newClient.addButton' | translate }}</button>
-      <button mat-stroked-button type="button" (click)="onCancel()">{{ 'newClient.cancelButton' | translate }}</button>
-    </div>
+  <div class="container-actions">
+    <button class="button-primary" mat-flat-button type="submit">{{ 'newClient.addButton' | translate }}</button>
+    <button class="button-secondary" mat-raised-button type="button" (click)="onCancel()">{{ 'newClient.cancelButton' | translate }}</button>
+  </div>
   </form>
 </div>
 

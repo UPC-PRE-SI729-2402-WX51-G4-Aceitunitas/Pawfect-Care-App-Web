@@ -1,10 +1,8 @@
 
-<div class="register-container">
   <mat-card>
     <h2>{{ 'register-container.register.title' | translate }}</h2>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form">
-
 
       <mat-form-field appearance="fill" class="form-field">
         <mat-label> Username</mat-label>
@@ -24,15 +22,16 @@
         }
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit" class="submit-button">
-        {{ 'register-container.register.submitButton' | translate }}
-      </button>
-    
-      <p>{{ 'register-container.register.alreadyHaveAccount' | translate }}</p>
-      <button type="button" (click)="navigateToLogin()" mat-button>
-        {{ 'register-container.register.loginButton' | translate }}
-      </button>
+ 
+      <div class="container-actions">
+        <button class="button-primary" type="submit"  mat-flat-button>  {{ 'register-container.register.submitButton' | translate }}</button>
+        <span class="text-center">
+          {{ 'register-container.register.alreadyHaveAccount' | translate }}
+        </span>
+        <button class="button-secondary"  mat-raised-button type="button"  (click)="navigateToLogin()"  mat-flat-button>  {{ 'register-container.register.loginButton' | translate }}</button>
+      </div>
+
     </form>
   </mat-card>
-</div>
+
 

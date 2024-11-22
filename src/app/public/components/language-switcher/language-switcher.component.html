@@ -1,12 +1,15 @@
-<mat-button-toggle-group [value]="currentLang"
-                         appearance="standard"
-                         aria-label="Preferred language"
-                         name="languages">
-  @for (language of languages; track language) {
-    <mat-button-toggle [value]="language"
-                       [aria-label]="language"
-                       (click)="useLanguage(language)">
-      {{ language.toUpperCase() | translate }}
-    </mat-button-toggle>
-  }
+<div class="toggle-wrapper-language">
+  <mat-button-toggle-group [value]="currentLang"
+  appearance="standard"
+  aria-label="Preferred language"
+  name="languages">
+@for (language of languages; track language) {
+<mat-button-toggle [value]="language"
+[aria-label]="language"
+(click)="useLanguage(language)">
+{{ language.toUpperCase() | translate }}
+</mat-button-toggle>
+}
 </mat-button-toggle-group>
+
+</div>

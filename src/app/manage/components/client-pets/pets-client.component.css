@@ -5,23 +5,28 @@
     gap: 1rem;
   }
 
-  .button-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
+  .button-primary{
+    background-color: orange;
+    min-width: 120px;
   }
-
-
-  .header-actions {
+  .button-secondary:hover{
+  background-color: rgba(255, 166, 0, 0.116);
+  }
+  .button-secondary{
+    color: orange;
+    min-width: 120px;
+  }
+  .container-actions{
+    padding: 1rem;
+    gap: 1rem;
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
   }
-
-
   .button-add{
-    width: 400px;
-    margin-top: 12px;
+    min-width: 120px;
+  }
+  .header-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }

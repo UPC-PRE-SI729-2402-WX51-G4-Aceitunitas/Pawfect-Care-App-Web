@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../../services/authentication.service";
-import {MatButton} from "@angular/material/button";
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
+import { LanguageSwitcherComponent } from "../../../public/components/language-switcher/language-switcher.component";
+
 
 /**
  * Authentication section component
@@ -10,8 +16,13 @@ import {MatButton} from "@angular/material/button";
   selector: 'app-authentication-section',
   standalone: true,
   imports: [
-    MatButton
-  ],
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    LanguageSwitcherComponent
+],
   templateUrl: './authentication-section.component.html',
   styleUrl: './authentication-section.component.css'
 })

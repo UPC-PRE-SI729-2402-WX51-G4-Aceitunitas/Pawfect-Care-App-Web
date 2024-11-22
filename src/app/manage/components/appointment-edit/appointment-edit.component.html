@@ -1,5 +1,4 @@
 <h2>{{ 'editAppointment.appointmentName' | translate }}</h2>
-<div class="form-section">
   <form #appointmentForm="ngForm" (submit)="onSubmit()" class="form">
     <mat-form-field>
       <mat-label>{{ 'editAppointment.appointmentName' | translate }}</mat-label>
@@ -43,9 +42,11 @@
       </mat-select>
     </mat-form-field>
 
-    <div class="button-container">
-      <button mat-stroked-button type="submit">{{ 'editAppointment.updateButton' | translate }}</button>
-      <button mat-stroked-button type="button" (click)="onCancel()">{{ 'editAppointment.cancelButton' | translate }}</button>
+
+    <div class="container-actions">
+      <button class="button-primary" mat-flat-button type="submit">{{ 'editAppointment.updateButton' | translate }}</button>
+      <button class="button-secondary" mat-raised-button type="button" (click)="onCancel()">{{ 'editAppointment.cancelButton' | translate }}</button>
     </div>
+    
   </form>
-</div>
+

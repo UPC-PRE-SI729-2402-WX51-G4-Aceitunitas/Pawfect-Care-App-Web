@@ -1,12 +1,4 @@
-.register-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 0 20px;
-  box-sizing: border-box;
-  background-color: #f7d0a3; /* Fondo acorde al diseño general */
-}
+
 
 h2 {
   text-align: center;
@@ -15,8 +7,8 @@ h2 {
 }
 
 mat-card {
-  width: 100%;
-  max-width: 400px;
+  min-width: 400px;
+  /* max-width: 400px; */
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px; /* Bordes redondeados para el card */
@@ -84,4 +76,24 @@ mat-error {
 
 .mat-button-toggle-group .mat-button-toggle-checked {
   background-color: #f7d0a3; /* Resalta el idioma seleccionado con el color del tema */
+}
+
+
+.button-primary{
+  background-color: orange;
+}
+.button-secondary:hover{
+background-color: rgba(255, 166, 0, 0.116);
+}
+.button-secondary{
+  color: orange;
+}
+.container-actions{
+  padding: 1rem;
+  gap: 1rem;
+  display:flex;
+  flex-direction: column;
+}
+.text-center{
+  text-align: center;
 }

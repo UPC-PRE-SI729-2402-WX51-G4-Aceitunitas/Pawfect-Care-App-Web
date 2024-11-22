@@ -17,9 +17,9 @@
     <input matInput [(ngModel)]="client.address" name="address" placeholder="{{ 'editClient.addressPlaceholder' | translate }}" required />
   </mat-form-field>
 
-  <div class="button-container">
-    <button mat-stroked-button type="submit">{{ 'editClient.updateButton' | translate }}</button>
-    <button mat-stroked-button type="button" (click)="onCancel()">{{ 'editClient.cancelButton' | translate }}</button>
+  <div class="container-actions">
+    <button class="button-primary" mat-flat-button type="submit">{{ 'editClient.updateButton' | translate }}</button>
+    <button class="button-secondary" mat-raised-button type="button" (click)="onCancel()">{{ 'editClient.cancelButton' | translate }}</button>
   </div>
   
   <app-pets-client></app-pets-client>

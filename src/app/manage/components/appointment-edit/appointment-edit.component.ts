@@ -1,6 +1,6 @@
 import {Component, inject, Input, ViewChild} from '@angular/core';
 import {FormsModule, NgForm} from "@angular/forms";
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatButtonModule} from "@angular/material/button";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatOption} from "@angular/material/core";
@@ -24,7 +24,7 @@ class ngOnInit {
   standalone: true,
   imports: [
     FormsModule,
-    MatButton,
+    MatButtonModule,
     MatFormField,
     MatInput,
     MatLabel,

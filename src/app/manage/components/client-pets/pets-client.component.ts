@@ -19,7 +19,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-pets-client',
@@ -42,7 +42,7 @@ import { MatButton } from '@angular/material/button';
     FormsModule,
     MatFormField,
     MatInput,
-    MatButton,
+    MatButtonModule,
     TranslateModule
   ],
   templateUrl: './pets-client.component.html',

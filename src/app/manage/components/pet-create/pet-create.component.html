@@ -37,8 +37,8 @@
     <mat-radio-button value="FEMALE">{{ 'pet.female' | translate }}</mat-radio-button>
   </mat-radio-group>
 
-  <div class="button-container">
-    <button mat-stroked-button type="submit">{{ 'pet.addButton' | translate }}</button>
-    <button mat-stroked-button type="button" (click)="onCancel()">{{ 'pet.cancelButton' | translate }}</button>
+  <div class="container-actions">
+    <button class="button-primary" mat-flat-button type="submit">{{ 'pet.addButton' | translate }}</button>
+    <button class="button-secondary" mat-raised-button type="button" (click)="onCancel()">{{ 'pet.cancelButton' | translate }}</button>
   </div>
 </form>

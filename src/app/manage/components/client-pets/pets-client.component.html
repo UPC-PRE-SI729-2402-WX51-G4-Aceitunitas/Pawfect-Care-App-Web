@@ -1,7 +1,7 @@
 <div class="pet-list">
     <div class="header-actions">
         <h2>Pets of client</h2>
-        <button class="button-add" type="button" mat-stroked-button mat-stroked-button
+        <button class="button-add button-primary" type="button" mat-flat-button
             (click)="AddPetToClient()">{{'pets1.home.button' |
             translate}}</button>
     </div>
@@ -45,7 +45,10 @@
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">Actions</th>
             <td mat-cell *matCellDef="let pet">
-                <button (click)="navigateToHcPet(pet.medicalHistoryId)"   type="button" mat-stroked-button>{{'pets.home.buttons.history' | translate}}</button>
+
+                <div class="container-actions">
+                    <button class="button-secondary" mat-raised-button  (click)="navigateToHcPet(pet.medicalHistoryId)" type="button">{{'pets.home.buttons.history' | translate}}</button>
+                </div>
             </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

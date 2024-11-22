@@ -1,5 +1,9 @@
-@if (isSignedIn) {
-  <span style="font-size: small"> Welcome, {{ currentUsername }}</span> | <button mat-button (click)="onSignOut()">Sign Out</button>
-} @else {
-  <button mat-button (click)="onSignIn()">Sign In</button> | <button mat-button (click)="onSignUp()">Sign Up</button>
-}
+
+<div class="container-actions">
+  @if (isSignedIn) {
+    <span style="font-size: small"> Welcome, {{ currentUsername }}</span> | <button class="button-primary"  type="button" mat-flat-button (click)="onSignOut()">Sign Out</button>
+  } @else {
+    <button type="button" class="button-primary" mat-flat-button (click)="onSignIn()">Sign In</button> | <button type="button"  class="button-secondary" mat-raised-button  (click)="onSignUp()">Sign Up</button>
+  }
+
+</div>

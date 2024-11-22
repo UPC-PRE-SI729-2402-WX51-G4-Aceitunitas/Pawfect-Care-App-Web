@@ -19,7 +19,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {  MatFormFieldModule } from '@angular/material/form-field';
 import { MatInput, MatInputModule } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-pets-management',
@@ -39,7 +39,7 @@ import { MatButton } from '@angular/material/button';
     MatSortHeader, 
     MatTable, 
     MatHeaderCellDef,
-    MatButton,
+    MatButtonModule,
     TranslateModule,
     FormsModule, 
     MatFormFieldModule, 
