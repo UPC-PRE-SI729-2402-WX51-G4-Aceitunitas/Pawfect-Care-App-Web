@@ -8,7 +8,7 @@ import { BaseService } from '../../shared/services/base.service';
 export class ClientsService extends BaseService<Client> {
   constructor() { 
     super();
-    this.resourceEndPoint = '/clients';
+    this.resourceEndPoint = '/api/v1/owners';
   }
 }
 

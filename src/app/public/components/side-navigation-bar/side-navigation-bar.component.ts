@@ -8,6 +8,7 @@ import { MatButtonModule, MatIconButton } from "@angular/material/button";
 import { Router, RouterLink } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterOutlet } from '@angular/router';
+import {LanguageSwitcherComponent} from "../language-switcher/language-switcher.component";
 @Component({
   selector: 'app-side-navigation-bar',
   standalone: true,
@@ -21,10 +22,10 @@ import { RouterOutlet } from '@angular/router';
     MatToolbar,
     MatIcon,
     MatIconButton,
-    MatButtonModule, 
-    MatDividerModule, 
+    MatButtonModule,
+    MatDividerModule,
     MatIconModule,
-    RouterOutlet,
+    RouterOutlet, LanguageSwitcherComponent,
   ],
   templateUrl: './side-navigation-bar.component.html',
   styleUrl: './side-navigation-bar.component.css'
@@ -34,7 +35,8 @@ export class SideNavigationBarComponent {
     { path: '/', title: 'Home' },
     { path: '/manage/pets', title: 'List pets' },
     { path: '/manage/clients', title: 'List clients' },
-    { path: '/manage/events', title: 'List events' },
+    { path: '/manage/appointments', title: 'List appointments' },
+    // { path: '/manage/MedicalHistory', title: 'Medical history'},
     { path: '/login', title: 'Login' },
   ];
 

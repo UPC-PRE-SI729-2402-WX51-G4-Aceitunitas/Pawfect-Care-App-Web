@@ -1,4 +1,4 @@
 export const environments = {
   production: true,
-  serverBasePath: null,
+  serverBasePath: 'https://pawfectcare-dnhqhvbmbxfgcqen.eastus2-01.azurewebsites.net',
 };

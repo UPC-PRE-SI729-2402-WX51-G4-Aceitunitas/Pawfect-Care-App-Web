@@ -1,27 +1,30 @@
 export class Pet {
   id: number;
-  name: string;
+  petName: string;
   birthDate: string;
   registrationDate: string;
-  breed: string;
-  gender: string;
-  hc: number;
+  animalBreed: string;
+  petGender: string;
+  ownerId: number;
+  hc:number;
 
   constructor(pet: {
-    id?: number
-    name?: string,
-    birthDate?: string,
-    registrationDate?: string,
-    breed?: string,
-    gender?: string,
-    hc?: number
+    id?: number;
+    petName?: string;
+    birthDate?: string;
+    registrationDate?: string;
+    animalBreed?: string;
+    petGender?: string;
+    ownerId?: number;
+    hc?: number;
   }) {
     this.id = pet.id || 0;
-    this.name = pet.name || '';
+    this.petName = pet.petName || '';
     this.birthDate = pet.birthDate || '';
     this.registrationDate = pet.registrationDate || '';
-    this.breed = pet.breed || '';
-    this.gender = pet.gender || 'U';
+    this.animalBreed = pet.animalBreed || '';
+    this.petGender = pet.petGender || 'MALE';
+    this.ownerId = pet.ownerId || 0;
     this.hc = pet.hc || 0;
   }
 }

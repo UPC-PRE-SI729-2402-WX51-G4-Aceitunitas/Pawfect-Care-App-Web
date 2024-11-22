@@ -1,1 +1,130 @@
-{}
+{
+  "section": {
+    "home": {
+      "title": "Bienvenido"
+    }
+  },
+  "section1": {
+    "home": {
+      "subtitle": "Bienvenido a PawfectCareApp"
+    }
+  },
+  "section2": {
+    "home": {
+      "description": "Su plataforma de referencia para gestionar la salud y\n      bienestar de tus mascotas. Si eres dueño de una mascota\n      o un profesional veterinario, PawfectCareApp simplifica la\n      gestión de historias clínicas, citas y más,\n      todo en un solo lugar. Disfrute de una experiencia perfecta con nuestro intuitivo\n      diseño y características integrales, diseñadas para mantener a tus amigos peludos\n      sano y feliz."
+    }
+  },
+
+  "pageDown": {
+    "home": {
+      "title": "La página no responde"
+    }
+  },
+  "pageDown1": {
+    "home": {
+      "subtitle": "The path",
+      "subtitle1" : "{{invalidUrl}}",
+      "subtitle2" : "is not valid."
+    }
+  },
+  "pageDown2": {
+    "home": {
+      "goHome": "Regresar"
+    }
+  },
+
+  "pets": {
+    "home": {
+      "title": "Lista de mascotas registradas",
+      "buttons":{
+        "edit":"Editar",
+        "history":"Historial"
+      }
+    }
+  },
+  "pets1": {
+    "home": {
+      "button": "Agregar nuevo"
+    }
+  },
+  "pets2": {
+    "home": {
+      "edit": "Editar"
+    }
+  },
+  "pets3": {
+    "home": {
+      "history": "Historial"
+    }
+  },
+
+  "clients": {
+    "home": {
+      "title": "Lista de clientes registrados",
+      "buttons":{
+        "edit":"Editar"
+      }
+    }
+  },
+  "clients1": {
+    "home": {
+      "button": "Agregar nuevo"
+    }
+  },
+  "clients2": {
+    "home": {
+      "edit": "Editar"
+    }
+  },
+
+  "event": {
+    "home": {
+      "title": "Lista de eventos",
+      "buttons":{
+        "edit":"Editar",
+        "check":"Terminar"
+      }
+    }
+  },
+  "event1": {
+    "home": {
+      "button": "Agregar nuevo"
+    }
+  },
+  "event2": {
+    "home": {
+      "edit": "Editar"
+    }
+  },
+  "event3": {
+    "home": {
+      "button2": "Marcar como completa"
+    }
+  },
+  "login-container": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "emailPlaceholder": "Introduce tu correo electrónico",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "submitButton": "Enviar",
+      "registerPrompt": "¿Todavía no tienes cuenta? Regístrate por favor.",
+      "registerButton": "Registrarse"
+    }
+  },
+  "register-container": {
+    "register": {
+      "title": "Registro",
+      "emailPlaceholder": "Correo electrónico",
+      "passwordPlaceholder": "Contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "submitButton": "Registrar",
+      "alreadyHaveAccount": "¿Ya tienes una cuenta? Inicia sesión",
+      "loginButton": "Iniciar sesión",
+      "errors": {
+        "required": "Este campo es obligatorio",
+        "invalidEmail": "No es un correo válido"
+      }
+    }
+  }
+}
+
