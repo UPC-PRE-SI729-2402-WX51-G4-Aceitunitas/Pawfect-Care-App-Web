@@ -4,11 +4,18 @@
             Pawfect Care
         </mat-toolbar>
         <mat-nav-list class="navlist-container">
-            @for (option of options; track option.title) {
-            <a mat-list-item [routerLink]="option.path">
-                {{ option.title}}
-            </a>
-            }
+            
+       
+            @if (isSignedIn) {
+                @for (option of options; track option.title) {
+                    <a mat-list-item [routerLink]="option.path">
+                        {{ option.title}}
+                    </a>
+                    }
+              } @else {
+                <app-authentication-section></app-authentication-section>
+              }
+              
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="side-content" >
@@ -20,7 +27,8 @@
                 <h2>Pawfect Care</h2>
             </div>
             <div class="left-buttons">
-                <button mat-stroked-button (click)="navigateToLogin()">Login</button>
+         
+                 <app-authentication-section></app-authentication-section>
                 <app-language-switcher></app-language-switcher>
             </div>
 
