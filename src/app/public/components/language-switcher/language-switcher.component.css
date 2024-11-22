@@ -1,0 +1,8 @@
+.mat-button-toggle-group .mat-button-toggle {
+  transition: transform 0.3s ease-in-out;
+}
+
+.mat-button-toggle:hover {
+  transform: scale(1.1);
+}
+

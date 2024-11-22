@@ -12,6 +12,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
 import { MatRadioModule } from '@angular/material/radio';
+import {TranslateModule} from "@ngx-translate/core";
 @Component({
   selector: 'app-pet-create',
   standalone: true,
@@ -28,6 +29,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSelectModule,
     MatOptionModule,
     MatRadioModule,
+    TranslateModule,
   ],
   templateUrl: './pet-create.component.html',
   styleUrl: './pet-create.component.css'

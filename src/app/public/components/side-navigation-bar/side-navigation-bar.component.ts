@@ -32,12 +32,11 @@ import {LanguageSwitcherComponent} from "../language-switcher/language-switcher.
 })
 export class SideNavigationBarComponent {
   options = [
-    { path: '/', title: 'Home' },
-    { path: '/manage/pets', title: 'List pets' },
-    { path: '/manage/clients', title: 'List clients' },
-    { path: '/manage/appointments', title: 'List appointments' },
-    // { path: '/manage/MedicalHistory', title: 'Medical history'},
-    { path: '/login', title: 'Login' },
+    { path: '/', title: 'Home', icon: 'home' },
+    { path: '/manage/pets', title: 'List pets', icon: 'pets' },
+    { path: '/manage/clients', title: 'List clients', icon: 'group' },
+    { path: '/manage/appointments', title: 'List appointments', icon: 'event' },
+    { path: '/login', title: 'Login', icon: 'login' },
   ];
 
   constructor(private router: Router) {
@@ -47,5 +46,7 @@ export class SideNavigationBarComponent {
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
+
+
 
 }
