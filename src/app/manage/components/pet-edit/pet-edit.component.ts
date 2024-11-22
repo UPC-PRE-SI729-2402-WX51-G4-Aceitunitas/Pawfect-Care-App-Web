@@ -12,6 +12,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
 import {MatRadioModule} from '@angular/material/radio';
+import {TranslateModule} from "@ngx-translate/core";
 @Component({
   selector: 'app-pet-edit',
   standalone: true,
@@ -28,6 +29,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatSelectModule,
     MatOptionModule,
     MatRadioModule,
+    TranslateModule,
   ],
   templateUrl: './pet-edit.component.html',
   styleUrl: './pet-edit.component.css'
@@ -71,7 +73,7 @@ export class PetEditComponent implements OnInit {
       this.pet = response;
     });
   }
-  
+
 
   onSubmit() {
     if (this.isValid()) {

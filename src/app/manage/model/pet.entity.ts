@@ -6,7 +6,7 @@ export class Pet {
   animalBreed: string;
   petGender: string;
   ownerId: number;
-  hc:number;
+  medicalHistoryId:number;
 
   constructor(pet: {
     id?: number;
@@ -16,7 +16,7 @@ export class Pet {
     animalBreed?: string;
     petGender?: string;
     ownerId?: number;
-    hc?: number;
+    medicalHistoryId?: number;
   }) {
     this.id = pet.id || 0;
     this.petName = pet.petName || '';
@@ -25,6 +25,6 @@ export class Pet {
     this.animalBreed = pet.animalBreed || '';
     this.petGender = pet.petGender || 'MALE';
     this.ownerId = pet.ownerId || 0;
-    this.hc = pet.hc || 0;
+    this.medicalHistoryId = pet.medicalHistoryId || 0;
   }
 }

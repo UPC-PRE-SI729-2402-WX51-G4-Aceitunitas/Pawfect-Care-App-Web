@@ -1,4 +1,4 @@
-/*import { TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { MedicalHistoryService } from './medical-history.service';
 
@@ -14,4 +14,4 @@ describe('MedicalHistoryService', () => {
     expect(service).toBeTruthy();
   });
 });
-*/
+

@@ -1,4 +1,4 @@
-/*import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BaseService } from '../../shared/services/base.service';
 import { MedicalHistory } from '../model/medical-history.entity';
 
@@ -11,4 +11,5 @@ export class MedicalHistoryService  extends BaseService<MedicalHistory>{
     this.resourceEndPoint = '/medicalHistory';
   }
 }
-*/
+
+

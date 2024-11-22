@@ -1,51 +1,70 @@
-<div class="medical-history-list">
-  <h2>{{ 'medicalHistory.title' | translate }}</h2>
-  <div class="controls-container">
+<div class="medical-history-container">
+  <!-- Título principal -->
+  <h2>{{ 'medicalHistory.petMedicalHistoryFormTitle' | translate }}</h2>
+
+  <!-- Subtítulo descriptivo -->
+  <p>{{ 'medicalHistory.timelineSubtitle' | translate }}</p>
+
+  <!-- Agregar descripción
+  <div class="add-description-section">
     <mat-form-field>
-      <input matInput type="text" placeholder="Search medical records" class="search-input" />
+      <textarea
+        matInput
+        [(ngModel)]="newHistoryDescription"
+        placeholder="{{ 'medicalHistory.historyDescriptionPlaceholder' | translate }}"
+        class="description-textarea"
+      ></textarea>
     </mat-form-field>
-    <button mat-stroked-button (click)="navigateToAddRecord()">{{ 'medicalHistory.addRecordButton' | translate }}</button>
-  </div>
+    <button mat-stroked-button color="primary" (click)="addHistory()">
+      {{ 'medicalHistory.addNewPetHistoryButton' | translate }}
+    </button>
+  </div>-->
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Record ID</th>
-      <td mat-cell *matCellDef="let record">{{ record.id }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="petName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Pet Name</th>
-      <td mat-cell *matCellDef="let record">{{ record.petName }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
-      <td mat-cell *matCellDef="let record">{{ record.date }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="diagnosis">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Diagnosis</th>
-      <td mat-cell *matCellDef="let record">{{ record.diagnosis }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="treatment">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Treatment</th>
-      <td mat-cell *matCellDef="let record">{{ record.treatment }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Actions</th>
-      <td mat-cell *matCellDef="let record">
-        <div class="button-container">
-          <button mat-stroked-button>{{ 'medicalHistory.buttons.edit' | translate }}</button>
-          <button mat-stroked-button>{{ 'medicalHistory.buttons.delete' | translate }}</button>
+  <!-- Historial cronológico -->
+  <div class="history-list">
+    <h4>{{ 'medicalHistory.chronologicalTitle' | translate }}</h4>
+    <mat-card class="record-item" *ngFor="let record of dataSource.data" appearance="outlined">
+      <mat-card-header class="card-header">
+        <mat-card-title>{{ record.appointmentName }}</mat-card-title>
+        <button mat-stroked-button color="primary" (click)="editHistory(record)">
+          {{ record.isEditing ? 'Save' : 'Edit' }}
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="edit-form">
+          <div class="wrapper-input">
+            <span class="span-title">Diagnosis</span>
+            <mat-form-field class="input-full-width">
+              <mat-label>Diagnosis</mat-label>
+              <input name="diagnosis" matInput [(ngModel)]="record.diagnosis" placeholder="Diagnosis" [disabled]="!record.isEditing">
+            </mat-form-field>
+          </div>
+          <div class="wrapper-input">
+            <span class="span-title">Treatment</span>
+            <mat-form-field class="input-full-width">
+              <mat-label>Treatment</mat-label>
+              <input name="treatment" matInput [(ngModel)]="record.treatment" placeholder="Treatment" [disabled]="!record.isEditing">
+            </mat-form-field>
+          </div>
+          <div class="wrapper-input">
+            <span class="span-title">Notes</span>
+            <mat-form-field class="input-full-width">
+              <mat-label>Notes</mat-label>
+              <textarea name="notes" matInput [(ngModel)]="record.notes" placeholder="Notes" [disabled]="!record.isEditing"></textarea>
+            </mat-form-field>
+          </div>
         </div>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
-  </table>
-
-  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+      </mat-card-content>
+      <mat-card-footer class="card-footer">
+        <mat-chip-set aria-label="Chihuahua traits">
+          <mat-chip><span class="subtitle">Start Date</span> {{ record.registrationDate | date:'dd/MM/yyyy HH:mm'}}</mat-chip>
+          <mat-chip>
+            <span class="subtitle">End Date</span> {{ record.endDate | date:'dd/MM/yyyy HH:mm'}} </mat-chip>
+        </mat-chip-set>
+      </mat-card-footer>
+    </mat-card>
+    <div *ngIf="dataSource.data.length === 0" class="no-records-message">
+      <p>{{ 'medicalHistory.noRecordsMessage' | translate }}</p>
+    </div>
+  </div>
 </div>

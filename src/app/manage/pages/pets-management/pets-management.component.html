@@ -1,12 +1,13 @@
 <div class="pet-list">
-  <h2>{{'pets.home.title' | translate}}</h2>
-
-  <div class="controls-container">
-    <mat-form-field>
-        <input matInput type="text" placeholder="Search pets" class="search-input" />
-    </mat-form-field>
-    <button mat-stroked-button (click)="navigateToAddPet()">{{'pets1.home.button' | translate}}</button>
-</div>
+    <h2>{{'pets.home.title' | translate}}</h2>
+    <div class="header-actions">
+        <mat-form-field class="search-full-width">
+            <mat-label>Search pets</mat-label>
+            <input matInput [(ngModel)]="searchQuery" (input)="applyFilter()" matInput placeholder="Search by name">
+        </mat-form-field>
+        <button class="button-add" mat-stroked-button (click)="navigateToAddClient()">{{'pets1.home.button' |
+            translate}}</button>
+    </div>
     <!-- DATA TABLE -->
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
@@ -40,14 +41,16 @@
         <ng-container matColumnDef="hc">
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Gender">Pet's hc
             </th>
-            <td mat-cell *matCellDef="let pet">{{ pet.hc??'No exist' }}</td>
+            <td mat-cell *matCellDef="let pet">{{ pet.medicalHistoryId??'No exist' }}</td>
         </ng-container>
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Actions">Actions</th>
             <td mat-cell *matCellDef="let pet">
                 <div class="button-container">
-                    <button (click)="navigateToEditPet(pet.id)" mat-stroked-button>{{'pets.home.buttons.edit' | translate}}</button>
-                    <button mat-stroked-button>{{'pets.home.buttons.history' | translate}}</button>
+                    <button (click)="navigateToEditPet(pet.id)" mat-stroked-button>{{'pets.home.buttons.edit' |
+                        translate}}</button>
+                    <button (click)="navigateToMedicalHistory(pet.medicalHistoryId)"
+                        mat-stroked-button>{{'pets.home.buttons.history' | translate}}</button>
                 </div>
             </td>
         </ng-container>

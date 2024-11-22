@@ -1,20 +1,27 @@
-<h2>Edit Client</h2>
+<h2>{{ 'editClient.title' | translate }}</h2>
+
 <form #clientForm="ngForm" (submit)="onSubmit()" class="form">
   <mat-form-field id="full-name-form-field">
-    <input matInput [(ngModel)]="client.fullName" name="fullName" placeholder="Full Name" required />
+    <input matInput [(ngModel)]="client.fullName" name="fullName" placeholder="{{ 'editClient.fullNamePlaceholder' | translate }}" required />
   </mat-form-field>
+
   <mat-form-field id="phone-form-field">
-    <input matInput [(ngModel)]="client.phoneNumber" name="phoneNumber" placeholder="Phone" required />
+    <input matInput [(ngModel)]="client.phoneNumber" name="phoneNumber" placeholder="{{ 'editClient.phoneNumberPlaceholder' | translate }}" required />
   </mat-form-field>
+
   <mat-form-field id="email-form-field">
-    <input matInput [(ngModel)]="client.email" name="email" placeholder="Email" required />
+    <input matInput [(ngModel)]="client.email" name="email" placeholder="{{ 'editClient.emailPlaceholder' | translate }}" required />
   </mat-form-field>
+
   <mat-form-field id="address-form-field">
-    <input matInput [(ngModel)]="client.address" name="address" placeholder="Address" required />
+    <input matInput [(ngModel)]="client.address" name="address" placeholder="{{ 'editClient.addressPlaceholder' | translate }}" required />
   </mat-form-field>
-  <app-pets-client></app-pets-client>
 
   <div class="button-container">
-    <button mat-stroked-button type="submit">Update</button>
-    <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+    <button mat-stroked-button type="submit">{{ 'editClient.updateButton' | translate }}</button>
+    <button mat-stroked-button type="button" (click)="onCancel()">{{ 'editClient.cancelButton' | translate }}</button>
   </div>
+  
+  <app-pets-client></app-pets-client>
+
+</form>

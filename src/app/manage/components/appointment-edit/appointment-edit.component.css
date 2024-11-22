@@ -1,4 +1,82 @@
-.form{
+/* Contenedor principal del formulario */
+.form-section {
+  background-color: #fff; /* Fondo blanco para el formulario */
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #f7d0a3; /* Naranja pastel */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Estilo para el formulario */
+.form {
   display: flex;
   flex-direction: column;
+  gap: 20px; /* Espaciado entre los campos */
+}
+
+/* Estilo para los campos de formulario */
+mat-form-field {
+  width: 100%;
+}
+
+mat-form-field mat-label {
+  color: #333; /* Color oscuro para las etiquetas */
+}
+
+mat-form-field input, mat-form-field mat-select {
+  border-radius: 8px; /* Bordes redondeados para los campos */
+  border: 1px solid #ccc; /* Borde gris claro */
+  padding: 10px;
+}
+
+/* Estilo del botón */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  background-color: #f7d0a3; /* Fondo naranja pastel */
+  color: #fff;
+  border: none;
+}
+
+.button-container button:hover {
+  background-color: #e0a06c; /* Sombra más oscura en hover */
+}
+
+/* Estilo para el toggle de "Is Medical" */
+mat-slide-toggle {
+  margin: 10px 0;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .form-section {
+    padding: 1rem;
+  }
+
+  .form {
+    gap: 12px; /* Reducir el espacio entre los campos en pantallas pequeñas */
+  }
+
+  h2 {
+    font-size: 2rem; /* Reducir tamaño de fuente en pantallas pequeñas */
+  }
 }

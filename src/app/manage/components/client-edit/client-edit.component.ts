@@ -12,6 +12,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
 import { PetsClientComponent } from "../client-pets/pets-client.component";
+import {TranslateModule} from "@ngx-translate/core";
 @Component({
   selector: 'app-client-edit',
   standalone: true,
@@ -28,8 +29,9 @@ import { PetsClientComponent } from "../client-pets/pets-client.component";
     MatSelectModule,
     MatOptionModule,
     MatRadioModule,
-    PetsClientComponent
-],
+    PetsClientComponent,
+    TranslateModule
+  ],
   templateUrl: './client-edit.component.html',
   styleUrl: './client-edit.component.css'
 })
@@ -41,7 +43,7 @@ export class ClientEditComponent implements OnInit {
   options: Client[] = [];
   clientId!: number;
 
-  constructor(private route: ActivatedRoute,private clientService: ClientsService,private router: Router) {
+  constructor(private route: ActivatedRoute,private router: Router,private clientService: ClientsService) {
     this.client = new Client({});
   }
 
@@ -71,7 +73,7 @@ export class ClientEditComponent implements OnInit {
       this.client = response;
     });
   }
-  
+
 
   onSubmit() {
     if (this.isValid()) {

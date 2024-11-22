@@ -9,6 +9,8 @@ import { Router, RouterLink } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterOutlet } from '@angular/router';
 import {LanguageSwitcherComponent} from "../language-switcher/language-switcher.component";
+import { AuthenticationSectionComponent } from "../../../iam/components/authentication-section/authentication-section.component";
+import { AuthenticationService } from '../../../iam/services/authentication.service';
 @Component({
   selector: 'app-side-navigation-bar',
   standalone: true,
@@ -25,26 +27,26 @@ import {LanguageSwitcherComponent} from "../language-switcher/language-switcher.
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
-    RouterOutlet, LanguageSwitcherComponent,
-  ],
+    RouterOutlet, LanguageSwitcherComponent, AuthenticationSectionComponent],
   templateUrl: './side-navigation-bar.component.html',
   styleUrl: './side-navigation-bar.component.css'
 })
 export class SideNavigationBarComponent {
+
+  isSignedIn: boolean = false;
   options = [
-    { path: '/', title: 'Home' },
-    { path: '/manage/pets', title: 'List pets' },
-    { path: '/manage/clients', title: 'List clients' },
-    { path: '/manage/appointments', title: 'List appointments' },
-    // { path: '/manage/MedicalHistory', title: 'Medical history'},
-    { path: '/login', title: 'Login' },
+    { path: '/', title: 'Home',icon: 'home' },
+    { path: '/manage/pets', title: 'List pets',icon: 'pets' },
+    { path: '/manage/clients', title: 'List clients',icon: 'group' },
+    { path: '/manage/appointments', title: 'List appointments',icon: 'event' },
   ];
 
-  constructor(private router: Router) {
-
+  constructor(private router: Router, private authenticationService: AuthenticationService) {
+    this.authenticationService.isSignedIn.subscribe(isSignedIn => this.isSignedIn = isSignedIn);
   }
 
-  navigateToLogin() {
-    this.router.navigate(['/login']);
-  }
+ 
+
+
+
 }

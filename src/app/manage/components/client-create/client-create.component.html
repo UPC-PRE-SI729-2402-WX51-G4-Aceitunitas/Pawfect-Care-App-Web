@@ -1,26 +1,37 @@
-<h2>New Client</h2>
-<div class="form-section">
+<h2>{{ 'newClient.title' | translate }}</h2>
 
+<div class="form-section">
   <form #clientForm="ngForm" (submit)="onSubmit()" class="form">
-    <mat-form-field >
-      <mat-label>Enter your fullName</mat-label>
-      <input matInput [(ngModel)]="client.fullName" name="fullName" placeholder="Full Name" type="text" required />
+
+    <!-- Campo de nombre completo -->
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'newClient.fullName' | translate }}</mat-label>
+      <input matInput [(ngModel)]="client.fullName" name="fullName" placeholder="{{ 'newClient.fullNamePlaceholder' | translate }}" type="text" required />
     </mat-form-field>
-    <mat-form-field >
-      <mat-label>Enter your phoneNumber</mat-label>
-      <input matInput [(ngModel)]="client.phoneNumber" name="phoneNumber" placeholder="Phone" type="number" required />
+
+    <!-- Campo de teléfono -->
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'newClient.phoneNumber' | translate }}</mat-label>
+      <input matInput [(ngModel)]="client.phoneNumber" name="phoneNumber" placeholder="{{ 'newClient.phoneNumberPlaceholder' | translate }}" type="number" required />
     </mat-form-field>
-    <mat-form-field >
-      <mat-label>Enter your email</mat-label>
-      <input matInput [(ngModel)]="client.email" name="email" placeholder="Email" type="email" required />
+
+    <!-- Campo de correo electrónico -->
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'newClient.email' | translate }}</mat-label>
+      <input matInput [(ngModel)]="client.email" name="email" placeholder="{{ 'newClient.emailPlaceholder' | translate }}" type="email" required />
     </mat-form-field>
-    <mat-form-field >
-      <mat-label>Enter your address</mat-label>
-      <input matInput [(ngModel)]="client.address" name="address" placeholder="Address" type="text" required />
+
+    <!-- Campo de dirección -->
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'newClient.address' | translate }}</mat-label>
+      <input matInput [(ngModel)]="client.address" name="address" placeholder="{{ 'newClient.addressPlaceholder' | translate }}" type="text" required />
     </mat-form-field>
+
+    <!-- Botones -->
     <div class="button-container">
-      <button  mat-stroked-button type="submit">Add</button>
-      <button mat-stroked-button type="button" (click)="onCancel()">Cancel</button>
+      <button mat-stroked-button type="submit">{{ 'newClient.addButton' | translate }}</button>
+      <button mat-stroked-button type="button" (click)="onCancel()">{{ 'newClient.cancelButton' | translate }}</button>
     </div>
   </form>
 </div>
+

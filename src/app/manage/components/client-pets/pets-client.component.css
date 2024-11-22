@@ -4,10 +4,24 @@
     align-items: center;
     gap: 1rem;
   }
-  
+
   .button-container{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
+  }
+
+
+  .header-actions {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+
+  .button-add{
+    width: 400px;
+    margin-top: 12px;
   }
