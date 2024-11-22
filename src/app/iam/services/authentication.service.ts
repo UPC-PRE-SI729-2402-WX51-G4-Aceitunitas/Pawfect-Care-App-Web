@@ -7,7 +7,7 @@ import {SignUpRequest} from "../model/sign-up.request";
 import {SignUpResponse} from "../model/sign-up.response";
 import {SignInRequest} from "../model/sign-in.request";
 import {SignInResponse} from "../model/sign-in.response";
-import { environments } from '../../../environments/environment';
+import { environments } from '../../../environments/environment.development';
 
 /**
  * Authentication service
