@@ -12,7 +12,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { Client } from '../../model/client.entity';
 import { ClientsService } from '../../services/clients.service';
 import { MatRadioModule } from '@angular/material/radio';
-import {TranslateModule} from "@ngx-translate/core";
+import { TranslateModule } from "@ngx-translate/core";
 @Component({
   selector: 'app-pet-create',
   standalone: true,
@@ -72,7 +72,6 @@ export class PetCreateComponent implements OnInit {
 
     if (this.isValid()) {
       this.createPet();
-      this.resetEditState();
     } else {
       console.error('Invalid form data');
     }
@@ -84,7 +83,7 @@ export class PetCreateComponent implements OnInit {
       ownerId: this.clientId
     }
     this.petService.create(dataPet).subscribe((response: Pet) => {
-
+      console.log(response)
       this.router.navigate([`/manage/clients/edit/${response.ownerId}`]);
     });
   }

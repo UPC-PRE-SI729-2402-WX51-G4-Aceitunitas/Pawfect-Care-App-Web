@@ -17,8 +17,6 @@ import { authenticationGuard } from './iam/services/authentication.guard';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    // { path: 'login', component: LoginComponent },
-    // { path: 'register', component: RegisterComponent },
     { path: 'manage/medicalHistory/:id', component: MedicalHistoryManagementComponent, canActivate: [authenticationGuard] },
     { path: 'manage/pets', component: PetsManagementComponent, canActivate: [authenticationGuard] },
     { path: 'manage/pets/edit/:id', component: PetEditComponent, canActivate: [authenticationGuard] },

@@ -32,7 +32,15 @@ export class AuthenticationService {
    * @param router the router
    * @param http the http client
    */
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { 
+    const token = localStorage.getItem('token');
+    console.log(token)
+    if (token) {
+      this.signedIn.next(true);
+    } else {
+      this.signedIn.next(false);
+    }
+  }
 
   /**
    * Validates if the user is signed in
